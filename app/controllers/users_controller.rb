@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         head :no_content
     end
 
-    private
+private
 
     def user_params
         params.permit(:first_name, :last_name, :username, :password, :password_confirmation, :venmo_username)

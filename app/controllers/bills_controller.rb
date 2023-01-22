@@ -8,7 +8,7 @@ class BillsController < ApplicationController
 
     def show
         bill = user_bills.find(params[:id])
-        render json: bill, status: :ok
+        render json: bill, serializer: BillWithItemsSerializer, status: :ok
     end
 
     def create
