@@ -42,7 +42,7 @@ function Login() {
     });
   }
 
-  console.log(user)
+  // console.log(user)
 
   function handleToSignupPage(){
     history.push("/signup")
@@ -69,7 +69,7 @@ function Login() {
         />
         <button type="submit">Login</button>
       </form>
-      <lable> New to Splitsy?</lable>
+      <label> New to Splitsy?</label>
       <button onClick={handleToSignupPage}> Sign Up </button>
       {errors?errors.map(e => <div>{e[0]+ ': ' + e[1]}</div>):null}
     </div>
