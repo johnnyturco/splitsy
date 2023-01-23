@@ -1,26 +1,27 @@
 import { useState, useEffect, createContext } from 'react';
-// import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import NavBar from './components/NavBar';
+import BillsCreated from './pages/BillsCreated';
+import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import { UserProvider } from './context/UserProvider';
 
-export const UserContext = createContext(null)
-
 function App() {
-
-  const [user, setUser] = useState({})
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:3000/me`)
-  //     .then((r) => r.json())
-  //     .then((userFromServer) => console.log(userFromServer));
-  // }, [user]);
 
   return (
     <UserProvider>
       <NavBar />
       <Switch>
-        
+        <Route path="/home">
+          <BillsCreated />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/">
+          <Login />
+        </Route>
       </Switch>
     </UserProvider>
   );

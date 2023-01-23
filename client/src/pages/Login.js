@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserProvider';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function Login() {
 
@@ -35,6 +35,7 @@ function Login() {
     .then((r) => r.json())
     .then((currentUser) => {
       setUser(currentUser)
+      history.push("/home")
     })
   }
   console.log(user)
@@ -59,6 +60,7 @@ function Login() {
         />
         <button type="submit">Login</button>
       </form>
+      <Link to="/signup">Sign Up</Link>
     </div>
   )
 }
