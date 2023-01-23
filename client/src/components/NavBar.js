@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NavBar() {
+const NavBar = () => {
 
   return null
 }

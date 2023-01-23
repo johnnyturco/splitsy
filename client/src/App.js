@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import BillsCreated from './pages/BillsCreated';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 import { UserProvider } from './context/UserProvider';
 
 function App() {
@@ -19,8 +20,11 @@ function App() {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Login />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </UserProvider>
