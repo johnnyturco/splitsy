@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
 
-    # def index
-    #     items = Item.where(:user_id => current_user.id)
-    #     render json: items, status: :ok
-    # end
+    def index
+        items = Item.where(:user_id => current_user.id)
+        render json: items, status: :ok
+    end
 
     def create
         item = Item.create!(user_id: current_user.id, item_note: params[:item_note], bill_id: params[:bill_id], amount: params[:amount], settled: params[:settled])
@@ -11,18 +11,20 @@ class ItemsController < ApplicationController
     end
 
     # def update
-    #     if current_user.id == bill_id
-    #         render json: {status: "Success"}
-    #     else
-    #         render json: {status: "Failed"}
-    #         # update items
-    #     end
+    #     item = Item.find(params[:id])
+    #         if current_user.id == bill_id
+    #             render json: {status: "Success"}
+    #         else
+    #             render json: {status: "Failed"}
+    #             # update items
+    #         end
     # end
 
-    # def update
-    #     item = Item.find(params[:id])
-    #     item.update!(item_params)
-    # end
+    def update
+        item = Item.find(params[:id])
+        item.update!(item_params)
+        render json: item, status: :accepted
+    end
 
     def destroy
         item = Item.find(params[:id])

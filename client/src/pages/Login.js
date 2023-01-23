@@ -3,6 +3,7 @@ import { UserContext } from '../context/UserProvider';
 import { useHistory, Link } from 'react-router-dom';
 
 function Login() {
+  const [errors, setErrors] = useState([]);
 
   let { user, setUser } = useContext(UserContext);
 
@@ -25,24 +26,32 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/login`, {
+    fetch(`login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(credentials)
-    })
-    .then((r) => r.json())
-    .then((currentUser) => {
-      setUser(currentUser)
-      history.push("/home")
-    })
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((currentUser) => setUser(currentUser));
+        history.push("/home")
+      } else {
+        r.json().then((errors)=> setErrors(Object.entries(errors.errors)))
+      }
+    });
   }
+
   console.log(user)
+
+  function handleToSignupPage(){
+    history.push("/signup")
+  }
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1> Welcome to Splitsy! </h1>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -60,7 +69,9 @@ function Login() {
         />
         <button type="submit">Login</button>
       </form>
-      <Link to="/signup">Sign Up</Link>
+      <lable> New to Splitsy?</lable>
+      <button onClick={handleToSignupPage}> Sign Up </button>
+      {errors?errors.map(e => <div>{e[0]+ ': ' + e[1]}</div>):null}
     </div>
   )
 }
