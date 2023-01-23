@@ -1,14 +1,17 @@
-import React, {useEffect} from 'react';
+import React, { useContext } from 'react';
+import { BillsContext } from '../context/BillsProvider';
+import BillsList from '../components/BillsList'
 
 function BillsCreated() {
 
-useEffect(() => {
-  fetch("/bills")
-    .then((r) => r.json())
-    .then(data => console.log(data))
-}, [])
+  const { bills, setBills } = useContext(BillsContext);
 
-  return <h1>BillsCreated Page</h1>
+  return (
+    <>
+      <h1>Bills You've Created</h1>
+      <BillsList bills={bills} />
+    </>
+  )
 }
 
 export default BillsCreated;
