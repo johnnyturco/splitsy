@@ -2,7 +2,6 @@ import { useState, useEffect, createContext } from 'react';
 // import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
-import Bills from './pages/Bills';
 import { UserProvider } from './context/UserProvider';
 
 export const UserContext = createContext(null)
@@ -19,8 +18,10 @@ function App() {
 
   return (
     <UserProvider>
-      <Login />
-      <Bills />
+      <NavBar />
+      <Switch>
+        
+      </Switch>
     </UserProvider>
   );
 }

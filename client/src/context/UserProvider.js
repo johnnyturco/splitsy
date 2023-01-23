@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
-const UserContext = React.createContext();
+const UserContext = createContext();
 
 function UserProvider({ children }) {
 
@@ -13,7 +13,7 @@ function UserProvider({ children }) {
   }, [])
 
   return (
-    <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={{user, setUser}}>
       { children }
     </UserContext.Provider>
   )

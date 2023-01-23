@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { UserContext } from '../App'
+import { UserContext } from '../context/UserProvider';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
 
   let { user, setUser } = useContext(UserContext);
+
+  let history = useHistory();
 
   const [credentials, setCredentials] = useState({
     username: "",
