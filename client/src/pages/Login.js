@@ -1,0 +1,63 @@
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../App'
+
+function Login() {
+
+  let { user, setUser } = useContext(UserContext);
+
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: ""
+  })
+
+  function handleChange(e) {
+    setCredentials((prevCredentials) => {
+      return {
+        ...prevCredentials,
+        [e.target.name]: e.target.value
+      }
+    })
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    fetch(`http://localhost:3000/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(credentials)
+    })
+    .then((r) => r.json())
+    .then((currentUser) => {
+      setUser(currentUser)
+    })
+  }
+  console.log(user)
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={credentials.username}
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={credentials.password}
+          onChange={handleChange}
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  )
+}
+
+export default Login;
