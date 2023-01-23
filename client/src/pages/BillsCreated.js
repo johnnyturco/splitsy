@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BillsContext } from '../context/BillsProvider';
+import BillsList from '../components/BillsList'
 
 function BillsCreated() {
 
-  return <h1>BillsCreated Page</h1>
+  const { bills, setBills } = useContext(BillsContext);
+
+  return (
+    <>
+      <h1>Bills You've Created</h1>
+      <BillsList bills={bills} />
+    </>
+  )
 }
 
 export default BillsCreated;

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+    before_action :authorize
+
+
     # testing purposes to see users
     def index
         users = User.all
