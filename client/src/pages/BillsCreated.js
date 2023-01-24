@@ -18,7 +18,7 @@ function BillsCreated() {
       <h1>Bills You've Created</h1>
       <BillsList bills={bills} />
 
-      <button onClick={handleCreateNewBill} >Create New Bill </button>
+      <button onClick={handleCreateNewBill}>Create New Bill </button>
     </>
   )
 }

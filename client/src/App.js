@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
 import BillsCreated from './pages/BillsCreated';
+import ItemsOwed from './pages/ItemsOwed';
 import SignUp from './pages/SignUp';
 import BillDetails from './pages/BillDetails';
 import Login from './pages/Login';
@@ -21,6 +22,9 @@ function App() {
           <Route path="/home">
             <BillsCreated />
           </Route>
+          <Route path="/items-owed">
+            <ItemsOwed />
+          </Route>
           <Route path="/create-new-bill">
             <NewBillForm />
           </Route>
@@ -28,6 +32,9 @@ function App() {
             <SignUp />
           </Route>
           <Route path="/bills/:id">
+            <BillDetails />
+          </Route>
+          <Route path="/bills-owed/:id">
             <BillDetails />
           </Route>
           <Route exact path="/">

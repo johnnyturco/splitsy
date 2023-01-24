@@ -17,6 +17,11 @@ class BillsController < ApplicationController
         render json: bill, serializer: BillWithItemsSerializer, status: :ok
     end
 
+    def bills_owed
+        bill = Bill.find(params[:id])
+        render json: bill, serializer: BillWithItemsSerializer, status: :ok
+    end
+
     def create
         puts bill_params
         bill = Bill.create!(bill_params)

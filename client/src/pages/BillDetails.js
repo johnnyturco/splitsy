@@ -6,7 +6,7 @@ function BillDetails() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`/bills/${id}`)
+    fetch(`/bills-owed/${id}`)
       .then((r) => r.json())
       .then(bill => setBill(bill))
   }, [])

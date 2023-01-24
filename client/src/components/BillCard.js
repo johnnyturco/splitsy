@@ -1,12 +1,6 @@
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function BillCard({ bill }) {
-
-  const history = useHistory();
-
-  function handleClick() {
-    // history.push(`/bill-details/${bill.id}`)
-  }
 
   return (
     <section>

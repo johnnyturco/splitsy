@@ -26,7 +26,7 @@ const NavBar = () => {
         <div>
           <nav>
             <NavLink exact to="/home">Bills Created</NavLink>
-            <NavLink exact to="/bills-owed">Bills Owed</NavLink>
+            <NavLink exact to="/items-owed">Items Owed</NavLink>
             <NavLink exact to="/profile">Profile</NavLink>
             <NavLink exact to="/" onClick={handleLogoutClick}>Logout</NavLink>
           </nav>
