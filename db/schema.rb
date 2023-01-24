@@ -18,17 +18,16 @@ ActiveRecord::Schema.define(version: 2023_01_21_000451) do
   create_table "bills", force: :cascade do |t|
     t.integer "creator_id"
     t.string "title"
-    t.datetime "date"
+    t.date "date"
     t.string "bill_note"
-    t.float "tax_amount"
-    t.float "tip_amount"
+    t.float "total_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.string "item_note"
-    t.float "amount"
+    t.float "item_amount"
     t.boolean "settled"
     t.bigint "user_id", null: false
     t.bigint "bill_id", null: false

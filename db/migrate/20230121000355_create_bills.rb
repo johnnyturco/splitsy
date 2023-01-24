@@ -3,10 +3,9 @@ class CreateBills < ActiveRecord::Migration[6.1]
     create_table :bills do |t|
       t.integer :creator_id
       t.string :title
-      t.datetime :date
+      t.date :date
       t.string :bill_note
-      t.float :tax_amount
-      t.float :tip_amount
+      t.float :total_amount
 
       t.timestamps
     end

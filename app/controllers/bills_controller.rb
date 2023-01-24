@@ -35,7 +35,7 @@ class BillsController < ApplicationController
 private
 
     def bill_params
-        params.permit(:creator_id, :title, :date, :bill_note, :tax_amount, :tip_amount)
+        params.permit(:creator_id, :title, :date, :bill_note, :total_amount)
     end
 
 # shows just bills made by user that is logged in
