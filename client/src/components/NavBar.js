@@ -14,18 +14,25 @@ const NavBar = () => {
       if (r.ok) {
         setUser(null)
       }
-    });
+    },[]);
   }
-
 
   return (
     <div>
-        <nav>
-          <NavLink exact to="/home">Bills Created</NavLink>
-          <NavLink exact to="/bills-owed">Bills Owed</NavLink>
-          <NavLink exact to="/profile">Profile</NavLink>
-          <NavLink exact to="/" onClick={handleLogoutClick}>Logout</NavLink>
-      </nav>
+      <h3>
+        <span>Splitsy</span> | An App to Split Expenses
+      </h3>
+      {!user ? (<div></div>) : (
+        <div>
+          <nav>
+            <NavLink exact to="/home">Bills Created</NavLink>
+            <NavLink exact to="/bills-owed">Bills Owed</NavLink>
+            <NavLink exact to="/profile">Profile</NavLink>
+            <NavLink exact to="/" onClick={handleLogoutClick}>Logout</NavLink>
+          </nav>
+          <h1> Hello, {user.first_name}! </h1>
+        </div>
+      )}
     </div>
   )
 }

@@ -44,13 +44,13 @@ function SignUp() {
         r.json().then((user) => setUser(user));
         history.push("/home");
       } else {
-        r.json().then((errors) => setErrors(Object.entries(errors.errors)))
+        r.json().then((err) => setErrors(err.errors));
       }
-    });
+    },[]);
   }
 
   function handleToLoginPage(){
-    history.push("/login")
+    history.push("/")
   }
 
   return (
@@ -128,7 +128,11 @@ function SignUp() {
         <label> Already Using Splitsy? </label>
         <button onClick={handleToLoginPage}>Login</button>
       </form>
-      {errors?errors.map(e => <div>{e[0]+ ': ' + e[1]}</div>):null}
+        <div>
+            {errors.map((err) => (
+              <p key={err}>{err}</p>
+            ))}
+        </div>
     </div>
   )
 }

@@ -37,9 +37,9 @@ function Login() {
         r.json().then((currentUser) => setUser(currentUser));
         history.push("/home")
       } else {
-        r.json().then((errors)=> setErrors(Object.entries(errors.errors)))
+        r.json().then((err) => setErrors(err.errors));
       }
-    });
+    },[]);
   }
 
   // console.log(user)
@@ -69,9 +69,14 @@ function Login() {
         />
         <button type="submit">Login</button>
       </form>
+      <br></br>
       <label> New to Splitsy?</label>
       <button onClick={handleToSignupPage}> Sign Up </button>
-      {errors?errors.map(e => <div>{e[0]+ ': ' + e[1]}</div>):null}
+        <div>
+          {errors.map((err) => (
+            <p key={err}>{err}</p>
+          ))}
+        </div>
     </div>
   )
 }
