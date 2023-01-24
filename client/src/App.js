@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp';
 import BillDetails from './pages/BillDetails';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import NewBillForm from './components/NewBillForm';
 import { UserProvider } from './context/UserProvider';
 import { BillsProvider } from './context/BillsProvider';
 
@@ -19,6 +20,9 @@ function App() {
         <Switch>
           <Route path="/home">
             <BillsCreated />
+          </Route>
+          <Route path="/create-new-bill">
+            <NewBillForm />
           </Route>
           <Route path="/signup">
             <SignUp />
