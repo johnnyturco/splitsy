@@ -4,13 +4,13 @@ class BillsController < ApplicationController
 
     # before_action :authorize
 
-    def index
-        render json: Bill.all, status: :ok
-    end
-
     # def index
-    #     render json: user_bills, status: :ok
+    #     render json: Bill.all, status: :ok
     # end
+
+    def index
+        render json: user_bills, status: :ok
+    end
 
     def show
         bill = user_bills.find(params[:id])
