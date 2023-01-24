@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
 import BillsCreated from './pages/BillsCreated';
-import SignUp from './pages/SignUp';
+import SignUp from './pages/Signup';
 import BillDetails from './pages/BillDetails';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -35,7 +35,7 @@ function App() {
       </Switch>
       </BillsProvider>
     </UserProvider>
-  );
+    );
 }
 
 export default App;
