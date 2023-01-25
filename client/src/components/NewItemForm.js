@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../context/UserProvider';
 
-function NewItemForm() {
+function NewItemForm({ setBillItems }) {
 
     let { user } = useContext(UserContext);
 
@@ -21,7 +21,7 @@ function NewItemForm() {
         )
     })
 
-    console.log(usersArray)
+    // console.log(usersArray)
 
 
     // logs session user id
@@ -57,7 +57,7 @@ function NewItemForm() {
         })
             .then((r) => r.json())
             .then((data) => {
-                console.log(itemData)
+                setBillItems((prevBillItems) => [...prevBillItems, data])
             })
         // resets form
             setItemAmount("")
@@ -68,7 +68,7 @@ function NewItemForm() {
 
     return (
         <div>
-            <h1>New Item Form</h1>
+            <h2>New Item Form</h2>
 
             <form onSubmit={handleSubmit}>
                 <label>User:</label>

@@ -6,25 +6,35 @@ import NewItemForm from '../components/NewItemForm';
 
 function BillDetails() {
   const [bill, setBill] = useState(null)
+  const [billItems, setBillItems] = useState(null)
   const { id } = useParams();
 
   useEffect(() => {
     fetch(`/bills-owed/${id}`)
       .then((r) => r.json())
-      .then(bill => setBill(bill))
+      .then(bill => {
+        setBill(bill)
+      })
   }, [])
 
+  useEffect(() => {
+    if (bill) {
+      setBillItems(bill.items)
+    }
+  }, [bill])
+
+  
 
   let preTaxTotal = 0;
   let taxAndTipAmount = 0;
-  if (bill) {
-    bill.items.forEach(item => (
+  if (billItems) {
+    billItems.forEach(item => (
       preTaxTotal += item.item_amount
     ))
-      taxAndTipAmount = bill.total_amount - preTaxTotal
+    taxAndTipAmount = bill.total_amount - preTaxTotal
   }
 
-  return bill ? (
+  return billItems ? (
     <>
       <section>
         <h2>{bill.title}</h2>
@@ -34,13 +44,13 @@ function BillDetails() {
       </section>
       <br></br>
       <section>
-        {bill.items.map(item => (
-          <ItemEntry key={item.id} item={item} preTaxTotal={preTaxTotal} taxAndTipAmount={taxAndTipAmount}/>
+        {billItems.map(item => (
+          <ItemEntry key={item.id} item={item} preTaxTotal={preTaxTotal} taxAndTipAmount={taxAndTipAmount} />
         ))}
       </section>
-      <div>
-        <NewItemForm />
-      </div>
+      <section>
+        <NewItemForm setBillItems={setBillItems} />
+      </section>
     </>
   ) : 'Loading'
 }
