@@ -15,13 +15,13 @@ function NewItemForm() {
     const { id } = useParams();
 
 
-    const usersArray = users.map(user => {
-        return (
-            user.venmo_username
-        )
-    })
+    // const usersArray = users.map(user => {
+    //     return (
+    //         user.venmo_username
+    //     )
+    // })
 
-    console.log(usersArray)
+    // console.log(usersArray)
 
 
     // logs session user id
