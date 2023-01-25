@@ -1,12 +1,21 @@
 class ItemsController < ApplicationController
 
+    # def index
+    #     render json: Item.all
+    # end
+
     def index
         items = Item.where(:user_id => current_user.id)
         render json: items, status: :ok
     end
 
+    # def create
+    #     item = Item.create!(user_id: current_user.id, item_note: params[:item_note], bill_id: params[:bill_id], item_amount: params[:item_amount], settled: params[:settled])
+    #     render json: item, status: :created
+    # end
+
     def create
-        item = Item.create!(user_id: current_user.id, item_note: params[:item_note], bill_id: params[:bill_id], item_amount: params[:item_amount], settled: params[:settled])
+        item = Item.create!(user_id: params[:user_id], item_note: params[:item_note], bill_id: params[:bill_id], item_amount: params[:item_amount], settled: params[:settled])
         render json: item, status: :created
     end
 
