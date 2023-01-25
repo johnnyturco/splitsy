@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :bills
   resources :users
 
+  get "/bills-owed/:id", to: "bills#bills_owed"
+
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
 
