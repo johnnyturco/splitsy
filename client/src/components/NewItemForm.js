@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserProvider';
 
 function NewItemForm() {
 
-    let { user } = useContext(UserContext); // if user_id = current_user.id --> set settled? = true
+    let { user } = useContext(UserContext);
 
     const [users, setUsers] = useState([]);
     const [usersId, setUsersId] = useState("");
@@ -13,6 +13,16 @@ function NewItemForm() {
     const [settled, setSettled] = useState(false);
     // const [bill, setBill] = useState({})
     const { id } = useParams();
+
+
+    const usersArray = users.map(user => {
+        return (
+            user.venmo_username
+        )
+    })
+
+    console.log(usersArray)
+
 
     // logs session user id
         // console.log(user.id)
@@ -56,10 +66,6 @@ function NewItemForm() {
             setUsersId("")
     }
 
-    function handleChecked(event){
-        setSettled({...settled, [event.target.name]: event.target.checked})
-    }
-
     return (
         <div>
             <h1>New Item Form</h1>
@@ -99,9 +105,24 @@ function NewItemForm() {
                         type="checkbox"
                         name="settled"
                         checked={settled}
-                        onChange={handleChecked}
+                        onChange={(e) => setSettled(e.target.checked)}
                     />
             <button>Add Item</button>
+            <br></br>
+            <label>Venmo Username: @</label>
+                <select
+                    id="venmo_username"
+                    name="venmo_username"
+                    value={usersId}
+                    onChange={(e) => setUsersId(e.target.value)}
+                >
+                    <option value="">Select a User's Venmo Handle</option>
+                        {users.map((user) => (
+                            <option key={user.id} value={user.id}>
+                                {user.venmo_username}
+                            </option>
+                        ))}
+                </select>
             </form>
         </div>
     )
