@@ -53,16 +53,11 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
       <section>
         {billItems.map(item => (
           <ItemEntry
-           
             key={item.id}
-           
             item={item}
-           
             preTaxTotal={preTaxTotal}
-           
             taxAndTipAmount={taxAndTipAmount}
             currencyFormatter={currencyFormatter}
-         
             setBillItems={setBillItems}
           />
         ))}
