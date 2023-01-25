@@ -4,9 +4,7 @@ import { BillsContext } from "../context/BillsProvider";
 import { useParams, useHistory } from 'react-router-dom';
 import Popup from "./Popup.js"
 
-function ItemEntry({item, preTaxTotal, taxAndTipAmount, setBillItems, currencyFormatter}) {
-
-  console.log(item)
+function ItemEntry({ item, preTaxTotal, taxAndTipAmount, setBillItems, currencyFormatter }) {
 
   let { bills, setBills } = useContext(BillsContext)
 
@@ -53,7 +51,6 @@ function ItemEntry({item, preTaxTotal, taxAndTipAmount, setBillItems, currencyFo
         setIsOpen(false)
   }
 
-function ItemEntry({item, preTaxTotal, taxAndTipAmount, currencyFormatter}) {
   function handleDeleteItem(e){
     fetch(`/items/${item.id}`,{
       method: "DELETE"
