@@ -1,4 +1,4 @@
-  import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserProvider';
 import { useHistory, Link } from 'react-router-dom';
 
@@ -55,7 +55,7 @@ function SignUp() {
 
   return (
     <div>
-      <h1> Lets Get Started! </h1>
+      <h1> Let's Get Started! </h1>
       <form onSubmit={handleSignUp}>
         <label>First Name: </label>
         <br></br>
