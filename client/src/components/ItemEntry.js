@@ -4,7 +4,7 @@ import { BillsContext } from "../context/BillsProvider";
 import { useParams, useHistory } from 'react-router-dom';
 import Popup from "./Popup.js"
 
-function ItemEntry({item, preTaxTotal, taxAndTipAmount, setBillItems}) {
+function ItemEntry({item, preTaxTotal, taxAndTipAmount, setBillItems, currencyFormatter}) {
 
   console.log(item)
 
@@ -53,6 +53,7 @@ function ItemEntry({item, preTaxTotal, taxAndTipAmount, setBillItems}) {
         setIsOpen(false)
   }
 
+function ItemEntry({item, preTaxTotal, taxAndTipAmount, currencyFormatter}) {
   function handleDeleteItem(e){
     fetch(`/items/${item.id}`,{
       method: "DELETE"
@@ -62,13 +63,14 @@ function ItemEntry({item, preTaxTotal, taxAndTipAmount, setBillItems}) {
 
   const amountOwed = ((item.item_amount / preTaxTotal) * taxAndTipAmount) + item.item_amount
 
+
   return (
     <section>
       ---------------------------
       <h4>{item.item_note}</h4>
       <p>Paid? {item.settled ? "true" : "false"}</p>
-      <p>Item Amount: ${item.item_amount}</p>
-      <p>Amount Owed: ${amountOwed}</p>
+      <p>Item Amount: {currencyFormatter.format(item.item_amount)}</p>
+      <p>Amount Owed: {currencyFormatter.format(amountOwed)}</p>
 
       <input
         type="button"

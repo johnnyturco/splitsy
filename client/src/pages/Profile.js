@@ -1,56 +1,112 @@
-import React from 'react'
+import { useState, useContext } from 'react';
+import { UserContext } from '../context/UserProvider'
 
-const Profile = () => {
+function Profile() {
+
+    let { user } = useContext(UserContext)
+    console.log(user.id)
+
+    const [ credentials, setCredentials ] = useState({
+        first_name: user.first_name,
+        last_name: user.last_name,
+        username: user.username,
+        venmo_username: user.venmo_username,
+        password: "",
+        password_confirmation: ""
+    })
+
+    function handleChange(e) {
+        setCredentials((prevCredential) => {
+            return {
+                ...prevCredential,
+                [e.target.name]: e.target.value
+            }
+        })
+    };
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        fetch(`/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(credentials)
+        })
+            .then((r) => r.json())
+            .then((data) => console.log(data))
+    }
+
     return (
-        <form class="w-full max-w-lg">
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                        First Name:
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane"/>
-                </div>
-                <div class="w-full md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                        Last Name
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
-                </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-username">
-                        Username:
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="Username"/>
-                </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-2">
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-                        Password:
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="*************"/>
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                        Venmo Username:
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Venmo-Name "/>
-                    <div class="relative">
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                        Zip
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210"/>
-                </div>
-            </div>
-        </form>
+        <div>
+            <h2>Update Your Profile</h2>
+            <form onSubmit={handleSubmit}>
+                <label>First Name: </label>
+                <br></br>
+                <input
+                    type="text"
+                    name="first_name"
+                    value={credentials.first_name}
+                    onChange={handleChange}
+                />
+                <br></br>
+
+                <label>Last Name: </label>
+                <br></br>
+                <input
+                    type="text"
+                    name="last_name"
+                    value={credentials.last_name}
+                    onChange={handleChange}
+                />
+                <br></br>
+
+                <label>Username: </label>
+                <br></br>
+                <input
+                    type="text"
+                    name="username"
+                    value={credentials.username}
+                    onChange={handleChange}
+                />
+                <br></br>
+
+                <label>Venmo Username: </label>
+                <br></br>
+                <input
+                    type="text"
+                    name="venmo_username"
+                    value={credentials.venmo_username}
+                    onChange={handleChange}
+                />
+                <br></br>
+
+                <label>Password: </label>
+                <br></br>
+                <input
+                    type="password"
+                    name="password"
+                    value={credentials.password}
+                    onChange={handleChange}
+                />
+                <br></br>
+
+                <label>Confirm Password: </label>
+                <br></br>
+                <input
+                    type="password"
+                    name="password_confirmation"
+                    value={credentials.password_confirmation}
+                    onChange={handleChange}
+                />
+                <br></br>
+                <br></br>
+
+                <button type="submit">Update Account</button>
+            </form>
+        </div>
     )
 }
+
 export default Profile;

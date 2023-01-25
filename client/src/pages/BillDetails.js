@@ -23,6 +23,15 @@ function BillDetails() {
     }
   }, [bill])
 
+
+
+const currencyFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+
+// console.log(currencyFormatter.format()); /* $2,500.00 */
+
   let preTaxTotal = 0;
   let taxAndTipAmount = 0;
   if (billItems) {
@@ -38,16 +47,22 @@ function BillDetails() {
         <h2>{bill.title}</h2>
         <h5>{bill.date}</h5>
         <p>{bill.bill_note}</p>
-        <p>Total Amount: ${bill.total_amount}</p>
+        <p>Total Amount: {currencyFormatter.format(bill.total_amount)}</p>
       </section>
       <br></br>
       <section>
         {billItems.map(item => (
           <ItemEntry
+           
             key={item.id}
+           
             item={item}
+           
             preTaxTotal={preTaxTotal}
+           
             taxAndTipAmount={taxAndTipAmount}
+            currencyFormatter={currencyFormatter}
+         
             setBillItems={setBillItems}
           />
         ))}
