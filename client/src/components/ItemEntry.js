@@ -1,23 +1,25 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserProvider";
-import { useParams } from 'react-router-dom';
+import { BillsContext } from "../context/BillsProvider";
+import { useParams, useHistory } from 'react-router-dom';
 import Popup from "./Popup.js"
 
+function ItemEntry({item, preTaxTotal, taxAndTipAmount, setBillItems}) {
 
-function ItemEntry({item, preTaxTotal, taxAndTipAmount}) {
+  console.log(item)
 
-  console.log(item.id)
-
-  const [isOpen, setIsOpen] = useState(false)
+  let { bills, setBills } = useContext(BillsContext)
 
   let { user } = useContext(UserContext);
-  const { id } = useParams();
 
+  const { id } = useParams();
+  const [isOpen, setIsOpen] = useState(false)
   const [users, setUsers] = useState([]);
   const [usersId, setUsersId] = useState(item.user_id);
   const [itemNote, setItemNote] = useState(item.item_note);
   const [itemAmount, setItemAmount] = useState(item.item_amount);
   const [settled, setSettled] = useState(item.settled)
+  let history = useHistory();
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -46,23 +48,28 @@ function ItemEntry({item, preTaxTotal, taxAndTipAmount}) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(itemData)
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((editedItem) => console.log(editedItem));
-        setIsOpen(false)
-      }
     });
+        alert("Item has been deleted from bill!");
+        setIsOpen(false)
+  }
+
+  function handleDeleteItem(e){
+    fetch(`/items/${item.id}`,{
+      method: "DELETE"
+    })
+      alert("Item has been removed from bill!");
   }
 
   const amountOwed = ((item.item_amount / preTaxTotal) * taxAndTipAmount) + item.item_amount
 
   return (
     <section>
+      ---------------------------
       <h4>{item.item_note}</h4>
       <p>Paid? {item.settled ? "true" : "false"}</p>
       <p>Item Amount: ${item.item_amount}</p>
       <p>Amount Owed: ${amountOwed}</p>
-      <button>Delete Item</button>
+
       <input
         type="button"
         value="Edit Item"
@@ -116,6 +123,9 @@ function ItemEntry({item, preTaxTotal, taxAndTipAmount}) {
         }
       handleClose={togglePopup}
       />}
+      <br></br>
+      <br></br>
+      <button onClick={handleDeleteItem}>Delete Item</button>
       <br></br>
       ---------------------------
     </section>

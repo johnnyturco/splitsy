@@ -23,8 +23,6 @@ function BillDetails() {
     }
   }, [bill])
 
-  
-
   let preTaxTotal = 0;
   let taxAndTipAmount = 0;
   if (billItems) {
@@ -45,7 +43,13 @@ function BillDetails() {
       <br></br>
       <section>
         {billItems.map(item => (
-          <ItemEntry key={item.id} item={item} preTaxTotal={preTaxTotal} taxAndTipAmount={taxAndTipAmount} />
+          <ItemEntry
+            key={item.id}
+            item={item}
+            preTaxTotal={preTaxTotal}
+            taxAndTipAmount={taxAndTipAmount}
+            setBillItems={setBillItems}
+          />
         ))}
       </section>
       <section>
