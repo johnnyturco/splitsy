@@ -82,7 +82,7 @@ function Profile() {
                 />
                 <br></br>
 
-                <label>Password: </label>
+                <label>New Password: </label>
                 <br></br>
                 <input
                     type="password"

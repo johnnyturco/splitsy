@@ -40,6 +40,7 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
     ))
     taxAndTipAmount = bill.total_amount - preTaxTotal
   }
+  console.log(billItems)
 
   return billItems ? (
     <>
@@ -58,6 +59,7 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
             preTaxTotal={preTaxTotal}
             taxAndTipAmount={taxAndTipAmount}
             currencyFormatter={currencyFormatter}
+            billItems ={billItems}
             setBillItems={setBillItems}
           />
         ))}

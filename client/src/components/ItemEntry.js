@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserProvider";
-import { BillsContext } from "../context/BillsProvider";
+// import { BillsContext } from "../context/BillsProvider";
 import { useParams, useHistory } from 'react-router-dom';
 import Popup from "./Popup.js"
 
-function ItemEntry({ item, preTaxTotal, taxAndTipAmount, setBillItems, currencyFormatter }) {
+function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems, currencyFormatter }) {
 
-  let { bills, setBills } = useContext(BillsContext)
+  // let { bills, setBills } = useContext(BillsContext)
 
   let { user } = useContext(UserContext);
 
@@ -26,7 +26,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, setBillItems, currencyF
   useEffect(() => {
     fetch("/users")
         .then((r) => r.json())
-        .then(setUsers);
+        .then(data => setUsers(data));
     }, []);
 
   function handlesSubmitEditedItem(e){
@@ -38,7 +38,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, setBillItems, currencyF
       user_id: usersId,
       bill_id: id,
       settled: settled
-  }
+    }
 
     fetch(`/items/${item.id}`, {
       method: "PATCH",
@@ -47,15 +47,27 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, setBillItems, currencyF
       },
       body: JSON.stringify(itemData)
     });
-        alert("Item has been deleted from bill!");
-        setIsOpen(false)
+
+    setIsOpen(false)
+    alert("Item has been deleted from bill!");
   }
+
 
   function handleDeleteItem(e){
     fetch(`/items/${item.id}`,{
       method: "DELETE"
     })
-      alert("Item has been removed from bill!");
+
+    deleteItemFromPage()
+    alert("Item has been removed from bill!");
+  }
+
+  function deleteItemFromPage() {
+    const newBillItems = billItems.filter(billItem => {
+      return billItem.id !== item.id
+    })
+    // console.log(newBillItems)
+    setBillItems(newBillItems)
   }
 
   const amountOwed = ((item.item_amount / preTaxTotal) * taxAndTipAmount) + item.item_amount
