@@ -265,3 +265,14 @@
   font-weight: 600;
   text-align: center;
 }
+
+.error{
+  padding-top: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.venmo-icon {
+  max-width: 100px;
+}

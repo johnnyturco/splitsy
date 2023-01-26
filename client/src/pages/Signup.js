@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserProvider';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function SignUp() {
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
 
-  let { user, setUser } = useContext(UserContext);
+  let { setUser } = useContext(UserContext);
   let history = useHistory();
 
   const [ credentials, setCredentials ] = useState({

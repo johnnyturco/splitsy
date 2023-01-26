@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserProvider';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
   const [errors, setErrors] = useState([]);
 
-  let { user, setUser } = useContext(UserContext);
+  let { setUser } = useContext(UserContext);
 
   let history = useHistory();
 

@@ -3,27 +3,23 @@ import { useParams, useHistory, Link, useLocation} from 'react-router-dom';
 import ItemEntry from '../components/ItemEntry'
 import NewItemForm from '../components/NewItemForm';
 import Popup from '../components/Popup.js';
-import { BillsContext } from '../context/BillsProvider';
+// import { BillsContext } from '../context/BillsProvider';
 import { UserContext } from '../context/UserProvider';
 
 function BillDetails() {
-  const [bill, setBill] = useState(null)
-  const [billItems, setBillItems] = useState(null)
-  const [isOpen, setIsOpen] = useState(false)
-  const { bills, setBills } = useContext(BillsContext);
-  const { user, setUser } = useContext(UserContext)
-  const [title, setTitle] = useState("")
-  const [totalAmount, setTotalAmount] = useState("")
-  const [date, setDate] = useState("")
-  const [notes, setNotes] = useState("")
-  const [creatorId, setCreatorId] = useState("");
+  const [ bill, setBill ] = useState(null)
+  const [ billItems, setBillItems ] = useState(null)
+  const [isOpen, setIsOpen ] = useState(false)
+  // const { bills, setBills } = useContext(BillsContext);
+  const { user } = useContext(UserContext)
+  const [ title, setTitle ] = useState("")
+  const [ totalAmount, setTotalAmount ] = useState("")
+  const [ date, setDate ] = useState("")
+  const [ notes, setNotes ] = useState("")
+  const [ creatorId, setCreatorId ] = useState("");
   const history = useHistory();
   const location = useLocation();
   const { id } = useParams()
-
-  console.log(bill)
-
-  console.log(user)
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -110,7 +106,7 @@ function BillDetails() {
         <h5>{bill.date}</h5>
         <p>{bill.bill_note}</p>
         <p>Total Amount: {currencyFormatter.format(bill.total_amount)}</p>
-      { user.id == bill.creator_id ? (
+      { user.id === bill.creator_id ? (
         <input
           className="BillBtn"
           type="button"
@@ -186,7 +182,7 @@ function BillDetails() {
           />
         ))}
       </section>
-      {user.id == bill.creator_id ? (
+      {user.id === bill.creator_id ? (
         <section>
           <NewItemForm setBillItems={setBillItems} />
         </section>

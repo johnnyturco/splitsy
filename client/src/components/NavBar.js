@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserProvider";
-import { NavLink, Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 const NavBar = () => {
 

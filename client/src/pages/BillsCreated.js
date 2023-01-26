@@ -5,7 +5,7 @@ import BillsList from '../components/BillsList'
 
 function BillsCreated() {
 
-  const { bills, setBills } = useContext(BillsContext);
+  const { bills } = useContext(BillsContext);
 
   let history = useHistory();
 
