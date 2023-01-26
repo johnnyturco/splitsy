@@ -45,36 +45,50 @@ function NewBillForm() {
 
     return (
         <div>
-            <h1>Create a New Bill</h1>
-            <form onSubmit={handleSubmit}>
+            <h1 className="PageTitle">Create a New Bill</h1>
+            <form onSubmit={handleSubmit} className="CreateForm">
+                <label className="FormLabel">Bill Title: </label>
                 <input
+                    className="FormInput"
                     type="text"
                     name="title"
                     placeholder="Title"
                     value={newBill.title}
                     onChange={handleChange}
                 />
+                <br></br>
+                <label className="FormLabel">Bill Date: </label>
                 <input
+                    className="FormInput"
                     type="date"
                     name="date"
                     placeholder="YYYY/MM/DD"
                     value={newBill.date}
                     onChange={handleChange}
                 />
+                <br></br>
+                <label className="FormLabel">Amount: $ </label>
                 <input
+                    className="FormInput"
+                    type="number"
+                    name="total_amount"
+                    value={newBill.total_amount}
+                    onChange={handleChange}
+                />
+                <br></br>
+                <label className="FormLabel">Notes: </label>
+                <textarea
+                    rows="4"
+                    cols="20"
+                    className="FormInput"
                     type="text"
                     name="bill_note"
                     placeholder="Notes"
                     value={newBill.bill_note}
                     onChange={handleChange}
                 />
-                <input
-                    type="number"
-                    name="total_amount"
-                    value={newBill.total_amount}
-                    onChange={handleChange}
-                />
-                <button>Create Bill</button>
+                <br></br>
+                <button className="FormBtn">Create Bill</button>
             </form>
         </div>
     )

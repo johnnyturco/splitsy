@@ -24,17 +24,180 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#NavBar{
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3d1c3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#WebsiteTitle{
+  font-size: 70px;
+  padding-left: 20px;
+}
+
+#Routes-Welcome{
+  display: flex;
+  justify-content: space-around;
+}
+
+.NavRoute{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#NavBarRoutes{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#WelcomeUser{
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+  padding-right: 10px;
+}
+
+#NavBarDropdownBtn{
+  background-color: #D47751;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin: 40px;
+  margin-right: 60px;
+}
+
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+#NavBarRoutes a:hover {
+  background-color: #7070703c
+}
+
+.dropdown:hover #NavBarRoutes {
+  display: block;
+}
+
+.dropdown:hover #NavBarDropdownBtn {
+  background-color: #D39E45;
+}
+
+.FormInput{
+  font-size: 20px;
+  padding: 8px;
+  margin: 10px
+}
+
+.FormLabel{
+  font-size: 28px;
+  text-align: center;
+}
+
+.FormBtn{
+  font-size: 20px;
+  margin: 3px;
+  align-items: center;
+  background-color: #D47751;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.CreateForm{
+  text-align: center;
+}
+
+.PageTitle{
+  text-align: center;
+}
+
+.SignUpTitle{
+  font-size: 50px;
+  text-align: center;
+}
+
+.SignUpFormInput{
+  font-size: 20px;
+  padding: 5px;
+  margin: 8px
+}
+
+.SignUpForm{
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+}
+
+.SignUpFormBtn{
+  text-align: center;
+}
+
+.LoginTitle{
+  font-size: 50px;
+  text-align: center;
+}
+
+.LoginForm{
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+}
+
+.ToSignUp{
+  text-align: center;
+}
+
+.EditFormLabel{
+  font-size: 20px;
+  text-align: center;
+}
+
+.EditFormInput{
+  font-size: 15px;
+  padding: 5px;
+  margin: 8px
+}
+
+.EditItemTitle{
+  font-size: 28px;
+  margin-top: 8px;
+  margin-bottom:5px;
+}
+
+.DeleteBtn{
+  font-size: 20px;
+  margin: 3px;
+  align-items: center;
+  background-color: #A09D52;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.BillBtn{
+  font-size: 20px;
+  margin: 3px;
+  align-items: center;
+  background-color:#D39E45;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.EditProfileForm{
+  text-align: center;
 }
 
 /* Popup style */
@@ -45,6 +208,7 @@
   height: 100vh;
   top: 0;
   left: 0;
+  border-radius: 15px;
 }
 
 .box {

@@ -71,7 +71,7 @@ function NewItemForm({ setBillItems }) {
             <h2>New Item Form</h2>
 
             <form onSubmit={handleSubmit}>
-                <label>User:</label>
+                <label className="FormLabel">User:</label>
                     <select
                         id="user_id"
                         name="user_id"
@@ -85,32 +85,38 @@ function NewItemForm({ setBillItems }) {
                             </option>
                         ))}
                     </select>
-                <label>Item Note: </label>
-                    <input
+                <label className="FormLabel">Item Note: </label>
+                    <textarea
+                        rows="2"
+                        cols="20"
+                        className="FormInput"
                         type="text"
                         name="item_note"
                         value={itemNote}
                         onChange={(e) => setItemNote(e.target.value)}
                     />
-                <label>Item Amount: </label>
+                <label className="FormLabel">Item Amount: </label>
                     <input
+                        className="FormInput"
                         type="number"
                         name="item_amount"
                         placeholder="$"
                         value={itemAmount}
                         onChange={(e) => setItemAmount(e.target.value)}
                     />
-                <label>Paid? </label>
+                <label className="FormLabel">Paid? </label>
                     <input
+                        className="FormInput"
                         type="checkbox"
                         name="settled"
                         checked={settled}
                         onChange={(e) => setSettled(e.target.checked)}
                     />
-            <button>Add Item</button>
+            <button className="FormBtn">Add Item</button>
             <br></br>
-            <label>Venmo Username: @</label>
+            <label className="FormLabel">Venmo Username: @</label>
                 <select
+                    className="FormInput"
                     id="venmo_username"
                     name="venmo_username"
                     value={usersId}

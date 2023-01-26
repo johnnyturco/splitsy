@@ -13,7 +13,7 @@ function ItemsOwed() {
 
   return (
     <>
-      <h1>Items You Owe</h1>
+      <h1 className="PageTitle">Items You Owe</h1>
       <ItemsList items={items}/>
     </>
   )

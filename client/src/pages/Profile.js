@@ -4,7 +4,6 @@ import { UserContext } from '../context/UserProvider'
 function Profile() {
 
     let { user } = useContext(UserContext)
-    console.log(user.id)
 
     const [ credentials, setCredentials ] = useState({
         first_name: user.first_name,
@@ -22,7 +21,7 @@ function Profile() {
                 [e.target.name]: e.target.value
             }
         })
-    };
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -39,12 +38,12 @@ function Profile() {
     }
 
     return (
-        <div>
-            <h2>Update Your Profile</h2>
+        <div className="EditProfileForm">
+            <h1 className="PageTitle" >Update Your Profile</h1>
             <form onSubmit={handleSubmit}>
-                <label>First Name: </label>
-                <br></br>
+                <label className="FormLabel">First Name: </label>
                 <input
+                    className="FormInput"
                     type="text"
                     name="first_name"
                     value={credentials.first_name}
@@ -52,9 +51,9 @@ function Profile() {
                 />
                 <br></br>
 
-                <label>Last Name: </label>
-                <br></br>
+                <label className="FormLabel">Last Name: </label>
                 <input
+                    className="FormInput"
                     type="text"
                     name="last_name"
                     value={credentials.last_name}
@@ -62,9 +61,9 @@ function Profile() {
                 />
                 <br></br>
 
-                <label>Username: </label>
-                <br></br>
+                <label className="FormLabel">Username: </label>
                 <input
+                    className="FormInput"
                     type="text"
                     name="username"
                     value={credentials.username}
@@ -72,9 +71,9 @@ function Profile() {
                 />
                 <br></br>
 
-                <label>Venmo Username: </label>
-                <br></br>
+                <label className="FormLabel">Venmo Username: </label>
                 <input
+                    className="FormInput"
                     type="text"
                     name="venmo_username"
                     value={credentials.venmo_username}
@@ -82,9 +81,9 @@ function Profile() {
                 />
                 <br></br>
 
-                <label>New Password: </label>
-                <br></br>
+                <label className="FormLabel">New Password: </label>
                 <input
+                    className="FormInput"
                     type="password"
                     name="password"
                     value={credentials.password}
@@ -92,9 +91,9 @@ function Profile() {
                 />
                 <br></br>
 
-                <label>Confirm Password: </label>
-                <br></br>
+                <label className="FormLabel">Confirm Password: </label>
                 <input
+                    className="FormInput"
                     type="password"
                     name="password_confirmation"
                     value={credentials.password_confirmation}
@@ -103,7 +102,10 @@ function Profile() {
                 <br></br>
                 <br></br>
 
-                <button type="submit">Update Account</button>
+                <button
+                    type="submit"
+                    className="DeleteBtn">Update Account
+                </button>
             </form>
         </div>
     )

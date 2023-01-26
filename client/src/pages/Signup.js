@@ -55,11 +55,11 @@ function SignUp() {
 
   return (
     <div>
-      <h1> Let's Get Started! </h1>
-      <form onSubmit={handleSignUp}>
-        <label>First Name: </label>
-        <br></br>
+      <h1 className="SignUpTitle"> Let's Get Started! </h1>
+      <form onSubmit={handleSignUp} className="SignUpForm">
+        <label className="FormLabel">First Name: </label>
         <input
+          className="SignUpFormInput"
           type="text"
           name="first_name"
           // placeholder="First Name"
@@ -67,9 +67,9 @@ function SignUp() {
           onChange={handleChange}
         />
             <br></br>
-        <label>Last Name: </label>
-        <br></br>
+        <label className="FormLabel">Last Name: </label>
         <input
+          className="SignUpFormInput"
           type="text"
           name="last_name"
           // placeholder="Last Name"
@@ -77,9 +77,9 @@ function SignUp() {
           onChange={handleChange}
         />
             <br></br>
-        <label>Username: </label>
-        <br></br>
+        <label className="FormLabel">Username: </label>
         <input
+          className="SignUpFormInput"
           type="text"
           name="username"
           // placeholder="Username"
@@ -87,9 +87,9 @@ function SignUp() {
           onChange={handleChange}
         />
             <br></br>
-        <label>Venmo Username: </label>
-        <br></br>
+        <label className="FormLabel">Venmo Username: </label>
         <input
+          className="SignUpFormInput"
           type="text"
           name="venmo_username"
           // placeholder="Venmo Username"
@@ -97,9 +97,9 @@ function SignUp() {
           onChange={handleChange}
         />
             <br></br>
-        <label>Password: </label>
-        <br></br>
+        <label className="FormLabel">Password: </label>
         <input
+          className="SignUpFormInput"
           type="password"
           name="password"
           // placeholder="Password"
@@ -108,9 +108,9 @@ function SignUp() {
           autoComplete="current-password"
         />
             <br></br>
-        <label>Confirm Password: </label>
-        <br></br>
+        <label className="FormLabel">Confirm Password: </label>
         <input
+          className="SignUpFormInput"
           type="password"
           name="password_confirmation"
           // placeholder="Confirm Password"
@@ -120,13 +120,13 @@ function SignUp() {
         />
             <br></br>
             <br></br>
-        <button type="submit">
+        <button type="submit" className="FormBtn">
           Create Account
         </button>
             <br></br>
             <br></br>
-        <label> Already Using Splitsy? </label>
-        <button onClick={handleToLoginPage}>Login</button>
+        <label className="FormLabel"> Already Using Splitsy? </label>
+        <button onClick={handleToLoginPage} className="FormBtn" >Login</button>
       </form>
         <div>
             {errors.map((err) => (

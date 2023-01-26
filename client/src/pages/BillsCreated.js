@@ -15,10 +15,10 @@ function BillsCreated() {
 
   return (
     <>
-      <h1>Bills You've Created</h1>
+      <h1 className="PageTitle">My Bills</h1>
       <BillsList bills={bills} />
 
-      <button onClick={handleCreateNewBill}>Create New Bill </button>
+      <button onClick={handleCreateNewBill} className="FormBtn">Create New Bill </button>
     </>
   )
 }

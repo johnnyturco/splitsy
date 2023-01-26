@@ -17,20 +17,34 @@ const NavBar = () => {
     },[]);
   }
 
+  function handleHome(){
+    history.push('/home')
+  }
+
   return (
-    <div>
-      <h3>
-        <span>Splitsy</span> | An App to Split Expenses
-      </h3>
+    <div id="NavBar">
+      {!user ? (
+        <h3>
+          <span id="WebsiteTitle">Splitsy</span> | An App to Split Expenses
+        </h3>
+      ): (
+        <h3>
+        <span id="WebsiteTitle" onClick={handleHome}>Splitsy</span> | An App to Split Expenses
+        </h3>
+      )}
+
       {!user ? (<div></div>) : (
-        <div>
-          <nav>
-            <NavLink exact to="/home">Bills Created</NavLink>
-            <NavLink exact to="/items-owed">Items Owed</NavLink>
-            <NavLink exact to="/profile">Profile</NavLink>
-            <NavLink exact to="/" onClick={handleLogoutClick}>Logout</NavLink>
-          </nav>
-          <h1> Hello, {user.first_name}! </h1>
+        <div id="Routes-Welcome">
+          <h1 id="WelcomeUser"> Hello, {user.first_name}! </h1>
+          <div className="dropdown">
+            <button id="NavBarDropdownBtn">Menu</button>
+              <nav id="NavBarRoutes">
+                <NavLink className="NavRoute" exact to="/home">My Bills</NavLink>
+                <NavLink className="NavRoute" exact to="/items-owed">Items Owed</NavLink>
+                <NavLink className="NavRoute" exact to="/profile">Profile</NavLink>
+                <NavLink className="NavRoute" exact to="/" onClick={handleLogoutClick}>Logout</NavLink>
+              </nav>
+          </div>
         </div>
       )}
     </div>
