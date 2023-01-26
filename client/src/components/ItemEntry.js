@@ -110,23 +110,28 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
         content={
           <>
             <form onSubmit={handlesSubmitEditedItem}>
-            <h1 className="EditItemTitle">Edit Item</h1>
-            <label className="EditFormLabel">User:</label>
-                      <select
-                          className="EditFormInput"
-                          id="user_id"
-                          name="user_id"
-                          value={usersId}
-                          onChange={(e) => setUsersId(e.target.value)}
-                      >
-                      <option value="">Select a User</option>
-                          {users.map((user) => (
-                              <option key={user.id} value={user.id}>
-                                  {user.first_name} {user.last_name}
-                              </option>
-                          ))}
-                      </select>
-              <label className="EditFormLabel">Item Note: </label>
+              <h1 className="EditItemTitle">Edit Item</h1>
+
+              <div className="form-div">
+                <label className="EditFormLabel">User:</label>
+                  <select
+                      className="EditFormInput"
+                      id="user_id"
+                      name="user_id"
+                      value={usersId}
+                      onChange={(e) => setUsersId(e.target.value)}
+                  >
+                  <option value="">Select a User</option>
+                      {users.map((user) => (
+                          <option key={user.id} value={user.id}>
+                              {user.first_name} {user.last_name}
+                          </option>
+                      ))}
+                  </select>
+              </div>
+
+              <div className="form-div">
+                <label className="EditFormLabel">Item Note: </label>
                 <textarea
                 className="EditFormInput"
                 type="text"
@@ -134,8 +139,10 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
                 value={itemNote}
                 onChange={(e) => setItemNote(e.target.value)}
                 />
+              </div>
 
-              <label className="EditFormLabel">Item Amount: </label>
+              <div className="form-div">
+                <label className="EditFormLabel">Item Amount: </label>
                 <input
                     className="EditFormInput"
                     type="number"
@@ -144,7 +151,10 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
                     value={itemAmount}
                     onChange={(e) => setItemAmount(e.target.value)}
                 />
-              <label className="EditFormLabel">Paid? </label>
+              </div>
+
+              <div className="form-div">
+                <label className="EditFormLabel">Paid? </label>
                 <input
                     className="EditFormInput"
                     type="checkbox"
@@ -152,6 +162,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
                     checked={settled}
                     onChange={(e) => setSettled(e.target.checked)}
                 />
+              </div>
             <button className="FormBtn">Update Item</button>
             </form>
           </>

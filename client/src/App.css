@@ -241,6 +241,15 @@ body {
   text-align: center;
 }
 
+.form-div {
+  margin-bottom: 10px;
+}
+
+.form-div > label {
+  display: inline-block;
+  width: 250px;
+}
+
 /* Popup style */
 .popup-box {
   position: fixed;
@@ -254,7 +263,7 @@ body {
 
 .box {
   position: relative;
-  width: 70%;
+  width: 30%;
   margin: 0 auto;
   height: auto;
   max-height: 70vh;
@@ -270,7 +279,7 @@ body {
   content: 'x';
   cursor: pointer;
   position: fixed;
-  right: calc(15% - 30px);
+  right: calc(35% - 30px);
   top: calc(100vh - 85vh - 33px);
   background: #ededed;
   width: 25px;

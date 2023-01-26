@@ -54,6 +54,7 @@ function NewBillForm() {
             </div>
             <h1 className="PageTitle">Create a New Bill</h1>
             <form onSubmit={handleSubmit} className="CreateForm">
+                <div className="form-div">
                 <label className="FormLabel">Bill Title: </label>
                 <input
                     className="FormInput"
@@ -63,7 +64,9 @@ function NewBillForm() {
                     value={newBill.title}
                     onChange={handleChange}
                 />
-                <br></br>
+                </div>
+
+                <div className="form-div">
                 <label className="FormLabel">Bill Date: </label>
                 <input
                     className="FormInput"
@@ -73,7 +76,9 @@ function NewBillForm() {
                     value={newBill.date}
                     onChange={handleChange}
                 />
-                <br></br>
+                </div>
+
+                <div className="form-div">
                 <label className="FormLabel">Amount: $ </label>
                 <input
                     className="FormInput"
@@ -82,7 +87,9 @@ function NewBillForm() {
                     value={newBill.total_amount}
                     onChange={handleChange}
                 />
-                <br></br>
+                </div>
+
+                <div className="form-div">
                 <label className="FormLabel">Notes: </label>
                 <textarea
                     rows="4"
@@ -94,6 +101,8 @@ function NewBillForm() {
                     value={newBill.bill_note}
                     onChange={handleChange}
                 />
+                </div>
+
                 <br></br>
                 <button className="FormBtn">Create Bill</button>
             </form>
