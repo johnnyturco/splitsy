@@ -240,3 +240,7 @@
   border: 1px solid #999;
   font-size: 20px;
 }
+
+.venmo-icon {
+  max-width: 100px;
+}

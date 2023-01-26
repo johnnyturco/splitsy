@@ -1,14 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserProvider";
-// import { BillsContext } from "../context/BillsProvider";
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Popup from "./Popup.js"
 
 function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems, currencyFormatter, bill}) {
-
-  // let { bills, setBills } = useContext(BillsContext)
-
-  console.log(bill.creator_id)
 
   let { user } = useContext(UserContext);
 
@@ -19,7 +14,6 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
   const [itemNote, setItemNote] = useState(item.item_note);
   const [itemAmount, setItemAmount] = useState(item.item_amount);
   const [settled, setSettled] = useState(item.settled)
-  let history = useHistory();
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -86,10 +80,10 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       <p>Paid? {item.settled ? "✅" : "🚫" }</p>
       <p>Item Amount: {currencyFormatter.format(item.item_amount)}</p>
       <p><span>Amount Owed </span> (includes tax & tip if applicable): {currencyFormatter.format(amountOwed)}</p>
-      <a href={`http://venmo.com/u/${item.user.venmo_username}`}>Venmo</a>
+      <a target="_blank" rel="noreferrer" href={`http://venmo.com/u/${item.user.venmo_username}`}><img className="venmo-icon" src="../venmo-icon.png" alt="Venmo Icon" /></a>
       <br></br>
 
-    {user.id == bill.creator_id ? (
+    {user.id === bill.creator_id ? (
               <input
               className="FormBtn"
               type="button"
@@ -154,7 +148,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       <br></br>
       <br></br>
 
-      { user.id == bill.creator_id ? (
+      { user.id === bill.creator_id ? (
         <>
           <button onClick={handleDeleteItem} className="DeleteBtn">Delete Item</button>
           <br></br>

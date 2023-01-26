@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../context/UserProvider';
+// import { UserContext } from '../context/UserProvider';
 
 function NewItemForm({ setBillItems }) {
 
-    let { user } = useContext(UserContext);
+    // let { user } = useContext(UserContext);
 
     const [users, setUsers] = useState([]);
     const [usersId, setUsersId] = useState("");
