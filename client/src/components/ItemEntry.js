@@ -31,6 +31,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
         .then(data => setUsers(data));
     }, []);
 
+
   function handlesSubmitEditedItem(e){
     e.preventDefault();
 
@@ -49,8 +50,12 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       },
       body: JSON.stringify(itemData)
     })
-        setIsOpen(false)
-        alert("Item has been updated!");
+      .then((r) => r.json())
+      .then((updatedItem) => console.log(updatedItem))
+
+    item = itemData
+    setIsOpen(false)
+    alert("Item has been updated!");
   }
 
   function handleDeleteItem(e){
@@ -76,10 +81,13 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
   return (
     <section>
       ---------------------------
+      <h3>{`${item.user.first_name} ${item.user.last_name}`}</h3>
       <h4>{item.item_note}</h4>
       <p>Paid? {item.settled ? "✅" : "🚫" }</p>
       <p>Item Amount: {currencyFormatter.format(item.item_amount)}</p>
       <p><span>Amount Owed </span> (includes tax & tip if applicable): {currencyFormatter.format(amountOwed)}</p>
+      <a href={`http://venmo.com/u/${item.user.venmo_username}`}>Venmo</a>
+      <br></br>
 
     {user.id == bill.creator_id ? (
               <input

@@ -82,13 +82,11 @@ function BillDetails() {
   function handleGoBackCreate(){
       history.push("/home")
   }
-
-  const currencyFormatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
-
-// console.log(currencyFormatter.format()); /* $2,500.00 */
+  // MATH *****************
+    const currencyFormatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
 
   let preTaxTotal = 0;
   let taxAndTipAmount = 0;
@@ -98,7 +96,8 @@ function BillDetails() {
     ))
     taxAndTipAmount = bill.total_amount - preTaxTotal
   }
-  console.log(billItems)
+  // **********************
+
 
   return billItems ? (
     <>
@@ -181,9 +180,10 @@ function BillDetails() {
             preTaxTotal={preTaxTotal}
             taxAndTipAmount={taxAndTipAmount}
             currencyFormatter={currencyFormatter}
-            billItems ={billItems}
+            billItems={billItems}
             setBillItems={setBillItems}
             bill={bill}
+    
           />
         ))}
       </section>
@@ -193,7 +193,7 @@ function BillDetails() {
         </section>
       ) : null}
     </>
-  ) : 'Loading'
+  ) : 'Loading...'
 }
 
 export default BillDetails;
