@@ -53,26 +53,31 @@ function Login() {
       <h1 className="LoginTitle"> Welcome to Splitsy! </h1>
       <form onSubmit={handleSubmit} className="LoginForm">
       <h2>Please Login!</h2>
-        <label className="FormLabel">Username: </label>
-        <input
-          className="SignUpFormInput"
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={credentials.username}
-          onChange={handleChange}
-        />
-        <br></br>
-        <label className="FormLabel">Password: </label>
-        <input
-          className="SignUpFormInput"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={credentials.password}
-          onChange={handleChange}
-        />
-        <br></br>
+
+        <div className="form-div">
+          <label className="FormLabel">Username: </label>
+          <input
+            className="SignUpFormInput"
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={credentials.username}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="form-div">
+          <label className="FormLabel">Password: </label>
+          <input
+            className="SignUpFormInput"
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={credentials.password}
+            onChange={handleChange}
+          />
+        </div>
+
         <br></br>
         <button type="submit" className="FormBtn">Login</button>
       </form>

@@ -151,7 +151,9 @@ function BillDetails() {
             <>
               <form onSubmit={handleEditBill}>
                 <h1>Edit Bill: {bill.title}</h1>
-                <label className="EditFormLabel">Bill Title: </label>
+
+                <div className="form-div">
+                  <label className="EditFormLabel">Bill Title: </label>
                   <textarea
                       rows="3"
                       cols="20"
@@ -162,35 +164,46 @@ function BillDetails() {
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                   />
+                  </div>
+
+                  <div className="form-div">
                   <label className="EditFormLabel">Bill Date: </label>
-                  <input
-                    className="EditFormInput"
-                    type="date"
-                    name="date"
-                    placeholder="YYYY/MM/DD"
-                    value={date}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                  <label className="EditFormLabel">Bill Notes: </label>
-                  <textarea
-                    rows="4"
-                    cols="20"
-                    className="EditFormInput"
-                    type="text"
-                    name="bill_note"
-                    placeholder="Notes"
-                    value={notes}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                  <label className="EditFormLabel">Bill Amount: </label>
-                  <input
-                    className="EditFormInput"
-                    type="number"
-                    name="total_amount"
-                    placeholder="$ Total Amount (inc. tax/tip if applicable"
-                    value={totalAmount}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
+                    <input
+                      className="EditFormInput"
+                      type="date"
+                      name="date"
+                      placeholder="YYYY/MM/DD"
+                      value={date}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="form-div">
+                    <label className="EditFormLabel">Bill Notes: </label>
+                    <textarea
+                      rows="4"
+                      cols="20"
+                      className="EditFormInput"
+                      type="text"
+                      name="bill_note"
+                      placeholder="Notes"
+                      value={notes}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="form-div">
+                    <label className="EditFormLabel">Bill Amount: </label>
+                    <input
+                      className="EditFormInput"
+                      type="number"
+                      name="total_amount"
+                      placeholder="$ Total Amount (inc. tax/tip if applicable"
+                      value={totalAmount}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </div>
+
                 <button className="BillBtn" >Update Bill</button>
               </form>
             </>

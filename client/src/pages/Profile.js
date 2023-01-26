@@ -41,65 +41,71 @@ function Profile() {
         <div className="EditProfileForm">
             <h1 className="PageTitle" >Update Your Profile</h1>
             <form onSubmit={handleSubmit}>
-                <label className="FormLabel">First Name: </label>
-                <input
-                    className="FormInput"
-                    type="text"
-                    name="first_name"
-                    value={credentials.first_name}
-                    onChange={handleChange}
-                />
-                <br></br>
+                <div className="form-div">
+                    <label className="FormLabel">First Name: </label>
+                    <input
+                        className="FormInput"
+                        type="text"
+                        name="first_name"
+                        value={credentials.first_name}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <label className="FormLabel">Last Name: </label>
-                <input
-                    className="FormInput"
-                    type="text"
-                    name="last_name"
-                    value={credentials.last_name}
-                    onChange={handleChange}
-                />
-                <br></br>
+                <div className="form-div">
+                    <label className="FormLabel">Last Name: </label>
+                    <input
+                        className="FormInput"
+                        type="text"
+                        name="last_name"
+                        value={credentials.last_name}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <label className="FormLabel">Username: </label>
-                <input
-                    className="FormInput"
-                    type="text"
-                    name="username"
-                    value={credentials.username}
-                    onChange={handleChange}
-                />
-                <br></br>
+                <div className="form-div">
+                    <label className="FormLabel">Username: </label>
+                    <input
+                        className="FormInput"
+                        type="text"
+                        name="username"
+                        value={credentials.username}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <label className="FormLabel">Venmo Username: </label>
-                <input
-                    className="FormInput"
-                    type="text"
-                    name="venmo_username"
-                    value={credentials.venmo_username}
-                    onChange={handleChange}
-                />
-                <br></br>
+                <div className="form-div">
+                    <label className="FormLabel">Venmo Username: </label>
+                    <input
+                        className="FormInput"
+                        type="text"
+                        name="venmo_username"
+                        value={credentials.venmo_username}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <label className="FormLabel">New Password: </label>
-                <input
-                    className="FormInput"
-                    type="password"
-                    name="password"
-                    value={credentials.password}
-                    onChange={handleChange}
-                />
-                <br></br>
+                <div className="form-div">
+                    <label className="FormLabel">New Password: </label>
+                    <input
+                        className="FormInput"
+                        type="password"
+                        name="password"
+                        value={credentials.password}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <label className="FormLabel">Confirm Password: </label>
-                <input
-                    className="FormInput"
-                    type="password"
-                    name="password_confirmation"
-                    value={credentials.password_confirmation}
-                    onChange={handleChange}
-                />
-                <br></br>
+                <div className="form-div">
+                    <label className="FormLabel">Confirm Password: </label>
+                    <input
+                        className="FormInput"
+                        type="password"
+                        name="password_confirmation"
+                        value={credentials.password_confirmation}
+                        onChange={handleChange}
+                    />
+                </div>
                 <br></br>
 
                 <button
