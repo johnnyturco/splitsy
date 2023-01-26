@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import BillsCreated from './pages/BillsCreated';
 import ItemsOwed from './pages/ItemsOwed';
-import SignUp from './pages/SignUp';
+import Signup from './pages/Signup';
 import BillDetails from './pages/BillDetails';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -28,7 +28,7 @@ function App() {
             <NewBillForm />
           </Route>
           <Route path="/signup">
-            <SignUp />
+            <Signup />
           </Route>
           <Route path="/bills/:id">
             <BillDetails />

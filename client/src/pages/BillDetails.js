@@ -28,17 +28,18 @@ function BillDetails() {
   useEffect(() => {
     fetch(`/bills-owed/${id}`)
       .then((r) => r.json())
-      .then(bill => {
+      .then(billFromServer => {
         return (
-          setBill(bill),
-          setCreatorId(bill.creator_id),
-          setTitle(bill.title),
-          setDate(bill.date),
-          setNotes(bill.bill_note),
-          setTotalAmount(bill.total_amount)
+          setBill(billFromServer),
+          setCreatorId(billFromServer.creator_id),
+          setTitle(billFromServer.title),
+          setDate(billFromServer.date),
+          setNotes(billFromServer.bill_note),
+          setTotalAmount(billFromServer.total_amount)
         )
       })
   }, [])
+
 
   useEffect(() => {
     if (bill) {
@@ -65,12 +66,18 @@ function BillDetails() {
       body: JSON.stringify(editBill)
     })
       .then((r) => r.json())
-      .then((data) => console.log(data))
+      .then((editedBill) => (
+        setBill(editedBill),
+        setTitle(editedBill.title),
+        setDate(editedBill.date),
+        setNotes(editedBill.bill_note),
+        setTotalAmount(editedBill.total_amount)
+      ))
 
       setIsOpen(false);
       alert("Bill has been updated")
   }
-
+  console.log(bill)
   function handleGoBackOwed(){
       history.push("/items-owed")
   }
@@ -78,6 +85,7 @@ function BillDetails() {
   function handleGoBackCreate(){
       history.push("/home")
   }
+
   // MATH *****************
     const currencyFormatter = new Intl.NumberFormat('en-US', {
       style: 'currency',

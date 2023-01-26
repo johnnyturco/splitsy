@@ -45,10 +45,21 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       body: JSON.stringify(itemData)
     })
       .then((r) => r.json())
-      .then((updatedItem) => console.log(updatedItem))
+      .then((updatedItem) => updateEditedArray(updatedItem))
 
     setIsOpen(false)
     alert("Item has been updated!");
+  }
+
+  function updateEditedArray(updatedItem) {
+    const updatedItemsArray = billItems.map((billItem) => {
+      if (billItem.id === updatedItem.id) {
+        return updatedItem
+      } else {
+        return billItem
+      }
+    })
+    setBillItems(updatedItemsArray)
   }
 
   function handleDeleteItem(e){
