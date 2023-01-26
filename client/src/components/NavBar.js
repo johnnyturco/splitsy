@@ -33,7 +33,7 @@ const NavBar = () => {
         </h3>
       ): (
         <h3>
-        <span id="WebsiteTitle" onClick={handleHome}>Splitsy</span> | An App to Split Expenses
+        <span id="WebsiteTitle" onClick={handleHome}>Splitsy</span> | Easily Divide Expenses
         </h3>
       )}
 

@@ -10,7 +10,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
   const { id } = useParams();
   const [isOpen, setIsOpen] = useState(false)
   const [users, setUsers] = useState([]);
-  const [usersId, setUsersId] = useState(item.user_id);
+  const [usersId, setUsersId] = useState(item.user.id);
   const [itemNote, setItemNote] = useState(item.item_note);
   const [itemAmount, setItemAmount] = useState(item.item_amount);
   const [settled, setSettled] = useState(item.settled);
@@ -50,6 +50,8 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
     setIsOpen(false)
     alert("Item has been updated!");
   }
+
+  console.log(`${item.id}`)
 
   function updateEditedArray(updatedItem) {
     const updatedItemsArray = billItems.map((billItem) => {

@@ -102,7 +102,6 @@ function BillDetails() {
   }
   // **********************
 
-
   return billItems ? (
     <>
       <div id="goBackBtn">
