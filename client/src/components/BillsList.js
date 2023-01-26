@@ -6,7 +6,7 @@ function BillsList({ bills }) {
       <div>
         {bills.map(bill => (
           <div id="MyBills">
-          <BillCard key={bill.id} bill={bill} />
+            <BillCard key={bill.id} bill={bill} />
           </div>
         ))}
       </div>

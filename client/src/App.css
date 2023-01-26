@@ -24,6 +24,10 @@
   color: white;
 }
 
+body {
+  margin-bottom: 60px;
+}
+
 #NavBar{
   display: flex;
   justify-content: space-between;
@@ -302,6 +306,10 @@
   margin-bottom: 15px;
 }
 
+#itemContainer:hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+}
+
 #itemDetails{
 padding-left: 60px;
 }
@@ -331,8 +339,9 @@ padding-left: 60px;
 }
 
 #Bill-Container{
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex;
+  justify-content: space-evenly; */
+  padding-left: 20px;
   margin-bottom: 30px;
   background-color: rgba(239, 235, 235, 0.384);
   box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
@@ -372,7 +381,11 @@ padding-left: 60px;
   box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
   padding: 5px;
   padding-left: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+#MyBills:hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
 }
 
 .BillListContainer{
@@ -393,5 +406,54 @@ padding-left: 60px;
   margin: 3px;
   align-items: center;
   padding: 10px;
-
 }
+
+.BillList{
+  padding-top: 30px;
+  padding-right: 50px;
+  padding-left: 30px
+}
+
+.BillLink:visited {
+  color: black
+}
+
+.BillLink:hover {
+  color:#A09D52
+}
+
+.ItemsYouOweTitle{
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 80px;
+}
+
+.ItemsOwed{
+  background-color: rgba(239, 235, 235, 0.384);
+  box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
+  padding: 20px;
+  padding-left: 20px;
+  margin-bottom: 18px;
+}
+
+.ItemsOwed:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.ReturnToMyBillsBtn {
+  padding: 20px
+}
+
+.ReturnToBillsBtn{
+  font-size: 20px;
+  margin: 3px;
+  align-items: center;
+  background-color:#D39E45;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+

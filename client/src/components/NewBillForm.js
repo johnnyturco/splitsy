@@ -49,7 +49,9 @@ function NewBillForm() {
 
     return (
         <div>
-            <button className="FormBtn" onClick={handleGoBack}>Return to My Bills</button>
+            <div className="ReturnToMyBillsBtn">
+                <button className="ReturnToBillsBtn" onClick={handleGoBack}>Return to My Bills</button>
+            </div>
             <h1 className="PageTitle">Create a New Bill</h1>
             <form onSubmit={handleSubmit} className="CreateForm">
                 <label className="FormLabel">Bill Title: </label>

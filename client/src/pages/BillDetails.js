@@ -118,7 +118,7 @@ function BillDetails() {
             <p><b>Notes:</b> {bill.bill_note}</p>
             <p><b>Total Amount:</b> <span className='amount'>{currencyFormatter.format(bill.total_amount)}</span></p>
           </div>
-          <div className="EditBillBtn">
+          {/* <div className="EditBillBtn">
       { user.id === bill.creator_id ? (
           <input
             className="BillBtn"
@@ -127,25 +127,8 @@ function BillDetails() {
             onClick={togglePopup}
           />
         ) : null}
+        </div> */}
         </div>
-        </div>
-        {user.id === bill.creator_id ? (
-        <div className="addItemBtn">
-          <input
-            className="FormBtn"
-            type="button"
-            value="Add Item"
-            onClick={togglePopup}
-          />
-          {isOpen && <Popup
-            content={
-              <section>
-                <NewItemForm setBillItems={setBillItems} />
-              </section>
-            }
-            handleClose={togglePopup}
-          />}
-        </div>) : null}
         {isOpen && <Popup
           content={
             <>
@@ -197,6 +180,24 @@ function BillDetails() {
           }
         handleClose={togglePopup}
         /> }
+        <div></div>
+        {user.id === bill.creator_id ? (
+        <div className="addItemBtn">
+          <input
+            className="FormBtn"
+            type="button"
+            value="Add Item"
+            onClick={togglePopup}
+          />
+          {isOpen && <Popup
+            content={
+              <section>
+                <NewItemForm setBillItems={setBillItems} />
+              </section>
+            }
+            handleClose={togglePopup}
+          />}
+        </div>) : null}
       </div>
       <br></br>
       <section>

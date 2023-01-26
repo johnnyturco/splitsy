@@ -21,7 +21,7 @@ function BillsCreated() {
           <button onClick={handleCreateNewBill} className="FormBtn">Create New Bill </button>
         </div>
       </div>
-        <div>
+        <div className='BillList'>
           <BillsList bills={bills} />
         </div>
     </div>

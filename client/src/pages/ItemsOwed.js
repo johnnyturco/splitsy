@@ -12,10 +12,12 @@ function ItemsOwed() {
   }, [])
 
   return (
-    <>
-      <h1 className="PageTitle">Items You Owe</h1>
-      <ItemsList items={items}/>
-    </>
+    <div className="BillListContainer">
+      <h1 className="ItemsYouOweTitle">Items You Owe</h1>
+      <div className='BillList'>
+        <ItemsList items={items}/>
+      </div>
+    </div>
   )
 }
 
