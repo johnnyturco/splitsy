@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserProvider";
 import { useParams, useHistory } from 'react-router-dom';
 import Popup from "./Popup.js"
 
-function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems, currencyFormatter }) {
+function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems, currencyFormatter, bill }) {
 
   // let { bills, setBills } = useContext(BillsContext)
 
@@ -29,6 +29,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
         .then(data => setUsers(data));
     }, []);
 
+
   function handlesSubmitEditedItem(e){
     e.preventDefault();
 
@@ -46,10 +47,13 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
         "Content-Type": "application/json"
       },
       body: JSON.stringify(itemData)
-    });
+    })
+      .then((r) => r.json())
+      .then((updatedItem) => console.log(updatedItem))
 
+    item = itemData
     setIsOpen(false)
-    alert("Item has been deleted from bill!");
+    alert("Item has been updated!");
   }
 
 
@@ -76,10 +80,13 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
   return (
     <section>
       ---------------------------
+      <h3>{`${item.user.first_name} ${item.user.last_name}`}</h3>
       <h4>{item.item_note}</h4>
       <p>Paid? {item.settled ? "true" : "false"}</p>
       <p>Item Amount: {currencyFormatter.format(item.item_amount)}</p>
       <p>Amount Owed: {currencyFormatter.format(amountOwed)}</p>
+      <a href={`http://venmo.com/u/${item.user.venmo_username}`}>Venmo</a>
+      <br></br>
 
       <input
         type="button"

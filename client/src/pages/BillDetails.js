@@ -24,13 +24,11 @@ function BillDetails() {
   }, [bill])
 
 
-
-const currencyFormatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
-
-// console.log(currencyFormatter.format()); /* $2,500.00 */
+  // MATH *****************
+  const currencyFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
 
   let preTaxTotal = 0;
   let taxAndTipAmount = 0;
@@ -40,7 +38,8 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
     ))
     taxAndTipAmount = bill.total_amount - preTaxTotal
   }
-  console.log(billItems)
+  // **********************
+
 
   return billItems ? (
     <>
@@ -59,8 +58,9 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
             preTaxTotal={preTaxTotal}
             taxAndTipAmount={taxAndTipAmount}
             currencyFormatter={currencyFormatter}
-            billItems ={billItems}
+            billItems={billItems}
             setBillItems={setBillItems}
+            bill={bill}
           />
         ))}
       </section>
@@ -68,7 +68,7 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
         <NewItemForm setBillItems={setBillItems} />
       </section>
     </>
-  ) : 'Loading'
+  ) : 'Loading...'
 }
 
 export default BillDetails;
