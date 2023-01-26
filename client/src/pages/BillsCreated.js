@@ -14,12 +14,17 @@ function BillsCreated() {
   }
 
   return (
-    <>
-      <h1 className="PageTitle">My Bills</h1>
-      <BillsList bills={bills} />
-
-      <button onClick={handleCreateNewBill} className="FormBtn">Create New Bill </button>
-    </>
+    <div className="BillListContainer">
+      <div>
+        <h1 className="MyBillPageTitle">My Bills</h1>
+        <div className="CreateNewBillBtn">
+          <button onClick={handleCreateNewBill} className="FormBtn">Create New Bill </button>
+        </div>
+      </div>
+        <div>
+          <BillsList bills={bills} />
+        </div>
+    </div>
   )
 }
 

@@ -5,6 +5,7 @@ class BillWithItemsSerializer < ActiveModel::Serializer
   def items
     object.items.map do |item|
       {
+        id: item.id,
         item_note: item.item_note,
         item_amount: item.item_amount,
         settled: item.settled,

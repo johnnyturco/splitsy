@@ -4,10 +4,12 @@ function BillCard({ bill }) {
 
   return (
     <section>
-      <Link to={`/bills/${bill.id}`}>
-        <h2>{bill.title}</h2>
-      </Link>
-      <h5>{bill.date}</h5>
+      <div classname="BillRow">
+        <Link to={`/bills/${bill.id}`}>
+          <h2>{bill.title}</h2>
+        </Link>
+        <h5>{bill.date}</h5>
+      </div>
     </section>
   )
 }

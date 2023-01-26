@@ -28,16 +28,19 @@
   display: flex;
   justify-content: space-between;
   background-color: #f3d1c3;
+  border-radius: 5px;
 }
 
 #WebsiteTitle{
   font-size: 70px;
   padding-left: 20px;
+  border-radius: 5px;
 }
 
 #Routes-Welcome{
   display: flex;
   justify-content: space-around;
+  border-radius: 5px;
 }
 
 .NavRoute{
@@ -45,6 +48,7 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  border-radius: 5px;
 }
 
 .toLogin{
@@ -57,12 +61,14 @@
   border: none;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 .LoginBtn{
   padding: 20px;
   padding-top: 50px;
   padding-right: 30px;
+  border-radius: 5px;
 }
 
 #NavBarRoutes{
@@ -72,6 +78,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  border-radius: 5px;
 }
 
 #WelcomeUser{
@@ -79,6 +86,7 @@
   text-align: center;
   margin-top: 50px;
   padding-right: 10px;
+  border-radius: 5px;
 }
 
 #NavBarDropdownBtn{
@@ -90,6 +98,7 @@
   cursor: pointer;
   margin: 40px;
   margin-right: 60px;
+  border-radius: 5px;
 }
 
 .dropdown{
@@ -112,12 +121,14 @@
 .FormInput{
   font-size: 20px;
   padding: 8px;
-  margin: 10px
+  margin: 10px;
+  border-radius: 5px;
 }
 
 .FormLabel{
   font-size: 28px;
   text-align: center;
+  border-radius: 5px;
 }
 
 .FormBtn{
@@ -129,6 +140,7 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .CreateForm{
@@ -147,17 +159,20 @@
 .SignUpFormInput{
   font-size: 20px;
   padding: 5px;
-  margin: 8px
+  margin: 8px;
+  border-radius: 5px;
 }
 
 .SignUpForm{
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
+  border-radius: 5px;
 }
 
 .SignUpFormBtn{
   text-align: center;
+  border-radius: 5px;
 }
 
 .LoginTitle{
@@ -169,6 +184,7 @@
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
+  border-radius: 5px;
 }
 
 .ToSignUp{
@@ -183,7 +199,8 @@
 .EditFormInput{
   font-size: 15px;
   padding: 5px;
-  margin: 8px
+  margin: 8px;
+  border-radius: 5px;
 }
 
 .EditItemTitle{
@@ -201,6 +218,7 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .BillBtn{
@@ -212,6 +230,7 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .EditProfileForm{
@@ -237,7 +256,7 @@
   max-height: 70vh;
   margin-top: calc(100vh - 85vh - 20px);
   background: #fff;
-  border-radius: 4px;
+  border-radius: 5px;
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
@@ -252,7 +271,7 @@
   background: #ededed;
   width: 25px;
   height: 25px;
-  border-radius: 50%;
+  border-radius: 30%;
   line-height: 20px;
   text-align: center;
   border: 1px solid #999;
@@ -266,13 +285,113 @@
   text-align: center;
 }
 
-.error{
-  padding-top: 50px;
-  font-size: 30px;
-  font-weight: 600;
+.venmo-icon {
+  max-width: 100px;
+  padding: 10px;
+  padding-right: 35px;
+}
+
+#itemContainer{
+  align-items: center;
+  flex-direction: row;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
+  background-color: rgba(239, 235, 235, 0.384);
+  margin-bottom: 15px;
+}
+
+#itemDetails{
+padding-left: 60px;
+}
+
+#allItemContainer{
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.ItemBtns{
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+.AllBillContainer{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#test {
+  width: 500px;
+  flex-direction: column;
+}
+
+#Bill-Container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+  background-color: rgba(239, 235, 235, 0.384);
+  box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
+}
+
+#BillCard{
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.EditBillBtn{
+  padding-top: 80px;
+}
+
+.amount{
+  font-size: 22px;
+}
+
+.icon{
+  font-size: 20px
+}
+
+#goBackBtn{
+  padding-top: 20px;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.addItemBtn{
   text-align: center;
 }
 
-.venmo-icon {
-  max-width: 100px;
+#MyBills {
+  background-color: rgba(239, 235, 235, 0.384);
+  box-shadow: 0 5px 5px -2px rgba(128, 128, 128, 0.34);
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.BillListContainer{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.MyBillPageTitle{
+  font-size: 120px;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 80px;
+}
+
+.CreateNewBillBtn{
+  font-size: 20px;
+  text-align: center;
+  margin: 3px;
+  align-items: center;
+  padding: 10px;
+
 }

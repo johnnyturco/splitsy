@@ -97,23 +97,47 @@ function BillDetails() {
 
   return billItems ? (
     <>
-      {location.pathname === `/bills-owed/${id}` ? <Link to="/items-owed"><button onClick={handleGoBackOwed} className="BillBtn">Return to Items Owed</button></Link> : null}
-
-      {location.pathname === `/bills/${id}` ? <Link to="/home"><button onClick={handleGoBackCreate} className="BillBtn">Return to My Bills</button></Link> : null}
-
-      <section>
-        <h2>{bill.title}</h2>
-        <h5>{bill.date}</h5>
-        <p>{bill.bill_note}</p>
-        <p>Total Amount: {currencyFormatter.format(bill.total_amount)}</p>
+      <div id="goBackBtn">
+        {location.pathname === `/bills-owed/${id}` ? <Link to="/items-owed"><button onClick={handleGoBackOwed} className="BillBtn">Return to Items Owed</button></Link> : null}
+        {location.pathname === `/bills/${id}` ? <Link to="/home"><button onClick={handleGoBackCreate} className="BillBtn">Return to My Bills</button></Link> : null}
+      </div>
+    <div className='AllBillContainer'>
+      <div id="test">
+        <div id="Bill-Container">
+          <div id="BillCard">
+            <h2>{bill.title}</h2>
+            <h4>{bill.date}</h4>
+            <p><b>Notes:</b> {bill.bill_note}</p>
+            <p><b>Total Amount:</b> <span className='amount'>{currencyFormatter.format(bill.total_amount)}</span></p>
+          </div>
+          <div className="EditBillBtn">
       { user.id === bill.creator_id ? (
-        <input
-          className="BillBtn"
-          type="button"
-          value="Edit Bill"
-          onClick={togglePopup}
-        />) : null}
-
+          <input
+            className="BillBtn"
+            type="button"
+            value="Edit Bill"
+            onClick={togglePopup}
+          />
+        ) : null}
+        </div>
+        </div>
+        {user.id === bill.creator_id ? (
+        <div className="addItemBtn">
+          <input
+            className="FormBtn"
+            type="button"
+            value="Add Item"
+            onClick={togglePopup}
+          />
+          {isOpen && <Popup
+            content={
+              <section>
+                <NewItemForm setBillItems={setBillItems} />
+              </section>
+            }
+            handleClose={togglePopup}
+          />}
+        </div>) : null}
         {isOpen && <Popup
           content={
             <>
@@ -165,8 +189,7 @@ function BillDetails() {
           }
         handleClose={togglePopup}
         /> }
-
-      </section>
+      </div>
       <br></br>
       <section>
         {billItems.map(item => (
@@ -182,11 +205,7 @@ function BillDetails() {
           />
         ))}
       </section>
-      {user.id === bill.creator_id ? (
-        <section>
-          <NewItemForm setBillItems={setBillItems} />
-        </section>
-      ) : null}
+    </div>
     </>
   ) : (
   <div className="error">

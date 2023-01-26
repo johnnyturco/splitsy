@@ -13,7 +13,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
   const [usersId, setUsersId] = useState(item.user_id);
   const [itemNote, setItemNote] = useState(item.item_note);
   const [itemAmount, setItemAmount] = useState(item.item_amount);
-  const [settled, setSettled] = useState(item.settled)
+  const [settled, setSettled] = useState(item.settled);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -47,7 +47,6 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       .then((r) => r.json())
       .then((updatedItem) => console.log(updatedItem))
 
-    item = itemData
     setIsOpen(false)
     alert("Item has been updated!");
   }
@@ -73,20 +72,21 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
 
 
   return (
-    <section>
-      ---------------------------
-      <h3>{`${item.user.first_name} ${item.user.last_name}`}</h3>
-      <h4>{item.item_note}</h4>
-      <p>Paid? {item.settled ? "✅" : "🚫" }</p>
-      <p>Item Amount: {currencyFormatter.format(item.item_amount)}</p>
-      <p><span>Amount Owed </span> (includes tax & tip if applicable): {currencyFormatter.format(amountOwed)}</p>
-<<<<<<< HEAD
-      <a target="_blank" href={`http://venmo.com/u/${item.user.venmo_username}`}>Venmo</a>
-=======
-      <a target="_blank" rel="noreferrer" href={`http://venmo.com/u/${item.user.venmo_username}`}><img className="venmo-icon" src="../venmo-icon.png" alt="Venmo Icon" /></a>
->>>>>>> 1f304ef6f7b3e698ce53f0162efe76d75798abcd
-      <br></br>
+    <div id="allItemContainer">
+    <section id="itemContainer" >
+      <div id="itemCard">
+        <div id="itemDetails">
+          <h2>{`${item.user.first_name} ${item.user.last_name}`}</h2>
+          <h4>{item.item_note}</h4>
+          <p><b>Paid?</b><span className="icon">{item.settled ? " ✅" : " 🚫" }</span></p>
+          <p><b>Item Amount:</b> <span className="amount">{currencyFormatter.format(item.item_amount)}</span></p>
+          <p><b>Amount Owed </b> <em>(includes tax & tip if applicable)</em>: <span className="amount">{currencyFormatter.format(amountOwed)}</span></p>
+          <br></br>
+        </div>
+      </div>
 
+      <div className="ItemBtns">
+      <a target="_blank" rel="noreferrer" href={`http://venmo.com/u/${item.user.venmo_username}`}><img className="venmo-icon" src="../venmo-icon.png" alt="Venmo Icon" /></a>
     {user.id === bill.creator_id ? (
               <input
               className="FormBtn"
@@ -95,8 +95,6 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
               onClick={togglePopup}
             />
     ) : null}
-
-
       {isOpen && <Popup
         content={
           <>
@@ -158,9 +156,9 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
           <br></br>
         </>
       ) : null}
-
-      ---------------------------
+      </div>
     </section>
+    </div>
   )
 }
 
