@@ -45,11 +45,21 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       body: JSON.stringify(itemData)
     })
       .then((r) => r.json())
-      .then((updatedItem) => console.log(updatedItem))
+      .then((updatedItem) => updateEditedArray(updatedItem))
 
-    item = itemData
     setIsOpen(false)
     alert("Item has been updated!");
+  }
+
+  function updateEditedArray(updatedItem) {
+    const updatedItemsArray = billItems.map((billItem) => {
+      if (billItem.id === updatedItem.id) {
+        return updatedItem
+      } else {
+        return billItem
+      }
+    })
+    setBillItems(updatedItemsArray)
   }
 
   function handleDeleteItem(e){
@@ -80,11 +90,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       <p>Paid? {item.settled ? "✅" : "🚫" }</p>
       <p>Item Amount: {currencyFormatter.format(item.item_amount)}</p>
       <p><span>Amount Owed </span> (includes tax & tip if applicable): {currencyFormatter.format(amountOwed)}</p>
-<<<<<<< HEAD
-      <a target="_blank" href={`http://venmo.com/u/${item.user.venmo_username}`}>Venmo</a>
-=======
       <a target="_blank" rel="noreferrer" href={`http://venmo.com/u/${item.user.venmo_username}`}><img className="venmo-icon" src="../venmo-icon.png" alt="Venmo Icon" /></a>
->>>>>>> 1f304ef6f7b3e698ce53f0162efe76d75798abcd
       <br></br>
 
     {user.id === bill.creator_id ? (

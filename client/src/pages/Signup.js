@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserProvider';
 import { useHistory } from 'react-router-dom';
 
-function SignUp() {
+function Signup() {
   const [errors, setErrors] = useState([]);
   const [ setIsLoading] = useState(false);
 
@@ -137,4 +137,4 @@ function SignUp() {
   )
 }
 
-export default SignUp;
+export default Signup;
