@@ -129,7 +129,7 @@ function BillDetails() {
         ) : null}
         </div> */}
         </div>
-        {isOpen && <Popup
+        {/* {isOpen && <Popup
           content={
             <>
               <form onSubmit={handleEditBill}>
@@ -192,7 +192,7 @@ function BillDetails() {
             </>
           }
         handleClose={togglePopup}
-        /> }
+        /> } */}
         <div></div>
         {user.id === bill.creator_id ? (
         <div className="addItemBtn">

@@ -427,6 +427,10 @@ padding-left: 60px;
   color: black
 }
 
+.BillLink {
+  color: black
+}
+
 .BillLink:hover {
   color:#A09D52
 }
