@@ -21,11 +21,15 @@ const NavBar = () => {
     history.push('/home')
   }
 
+  function handleToLoginClick(){
+    history.push("/")
+  }
+
   return (
     <div id="NavBar">
       {!user ? (
         <h3>
-          <span id="WebsiteTitle">Splitsy</span> | An App to Split Expenses
+          <span id="WebsiteTitle">Splitsy</span> | Easily Divide Expenses
         </h3>
       ): (
         <h3>
@@ -33,7 +37,11 @@ const NavBar = () => {
         </h3>
       )}
 
-      {!user ? (<div></div>) : (
+      {!user ? (
+        <div className="LoginBtn">
+            <NavLink className="toLogin" exact to="/" onClick={handleToLoginClick}>Login</NavLink>
+        </div>)
+        : (
         <div id="Routes-Welcome">
           <h1 id="WelcomeUser"> Hello, {user.first_name}! </h1>
           <div className="dropdown">

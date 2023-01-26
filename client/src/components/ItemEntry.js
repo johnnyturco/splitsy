@@ -86,7 +86,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
       <p>Paid? {item.settled ? "✅" : "🚫" }</p>
       <p>Item Amount: {currencyFormatter.format(item.item_amount)}</p>
       <p><span>Amount Owed </span> (includes tax & tip if applicable): {currencyFormatter.format(amountOwed)}</p>
-      <a href={`http://venmo.com/u/${item.user.venmo_username}`}>Venmo</a>
+      <a target="_blank" href={`http://venmo.com/u/${item.user.venmo_username}`}>Venmo</a>
       <br></br>
 
     {user.id == bill.creator_id ? (

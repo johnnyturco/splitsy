@@ -1,8 +1,8 @@
 class BillsController < ApplicationController
 
-    wrap_parameters format: []
+    before_action :authorize, only: [:index, :show, :bills_owed, :create, :update, :destroy]
 
-    # before_action :authorize
+    wrap_parameters format: []
 
     # def index
     #     render json: Bill.all, status: :ok
@@ -26,12 +26,6 @@ class BillsController < ApplicationController
         puts bill_params
         bill = Bill.create!(bill_params)
         render json: bill, status: :created
-        # if current_user.id == params[:creator_id]
-        #     bill = current_user.bills.create!(bill_params)
-        #     render json: bill, status: :created
-        # else
-        #     render json: { errors: ["Invalid username or password"] }, status: :unauthorized
-        # end
     end
 
     def update

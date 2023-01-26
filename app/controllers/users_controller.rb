@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    # skip_before :authorize, only: [:create]
+    before_action :authorize, only: [:update, :destroy]
 
     # testing purposes to see users
     def index

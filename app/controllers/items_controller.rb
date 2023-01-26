@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+    before_action :authorize, only: [:index, :create, :update, :destroy]
+
     # def index
     #     render json: Item.all
     # end

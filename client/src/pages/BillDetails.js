@@ -183,7 +183,6 @@ function BillDetails() {
             billItems={billItems}
             setBillItems={setBillItems}
             bill={bill}
-    
           />
         ))}
       </section>
@@ -193,7 +192,10 @@ function BillDetails() {
         </section>
       ) : null}
     </>
-  ) : 'Loading...'
+  ) : (
+  <div className="error">
+    Please Login to See Your Bills
+  </div>)
 }
 
 export default BillDetails;
