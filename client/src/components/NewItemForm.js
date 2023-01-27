@@ -71,7 +71,8 @@ function NewItemForm({ setBillItems }) {
             <h2>New Item Form</h2>
 
             <form onSubmit={handleSubmit}>
-                <label className="FormLabel">User:</label>
+                <div className="form-div">
+                    <label className="FormLabel">User:</label>
                     <select
                         id="user_id"
                         name="user_id"
@@ -85,7 +86,10 @@ function NewItemForm({ setBillItems }) {
                             </option>
                         ))}
                     </select>
-                <label className="FormLabel">Item Note: </label>
+                </div>
+
+                <div className="form-div">
+                    <label className="FormLabel">Item Note: </label>
                     <textarea
                         rows="2"
                         cols="20"
@@ -95,7 +99,10 @@ function NewItemForm({ setBillItems }) {
                         value={itemNote}
                         onChange={(e) => setItemNote(e.target.value)}
                     />
-                <label className="FormLabel">Item Amount: </label>
+                </div>
+
+                <div className="form-div">
+                    <label className="FormLabel">Item Amount: </label>
                     <input
                         className="FormInput"
                         type="number"
@@ -104,7 +111,10 @@ function NewItemForm({ setBillItems }) {
                         value={itemAmount}
                         onChange={(e) => setItemAmount(e.target.value)}
                     />
-                <label className="FormLabel">Paid? </label>
+                </div>
+
+                <div className="form-div">
+                    <label className="FormLabel">Paid? </label>
                     <input
                         className="FormInput"
                         type="checkbox"
@@ -112,23 +122,28 @@ function NewItemForm({ setBillItems }) {
                         checked={settled}
                         onChange={(e) => setSettled(e.target.checked)}
                     />
-            <button className="FormBtn">Add Item</button>
-            <br></br>
-            <label className="FormLabel">Venmo Username: @</label>
-                <select
-                    className="FormInput"
-                    id="venmo_username"
-                    name="venmo_username"
-                    value={usersId}
-                    onChange={(e) => setUsersId(e.target.value)}
-                >
-                    <option value="">Select a User's Venmo Handle</option>
-                        {users.map((user) => (
-                            <option key={user.id} value={user.id}>
-                                {user.venmo_username}
-                            </option>
-                        ))}
-                </select>
+                </div>
+
+                <button className="FormBtn">Add Item</button>
+                <br></br>
+
+                <div className="form-div">
+                    <label className="FormLabel">Venmo Username: @</label>
+                    <select
+                        className="FormInput"
+                        id="venmo_username"
+                        name="venmo_username"
+                        value={usersId}
+                        onChange={(e) => setUsersId(e.target.value)}
+                    >
+                        <option value="">Select a User's Venmo Handle</option>
+                            {users.map((user) => (
+                                <option key={user.id} value={user.id}>
+                                    {user.venmo_username}
+                                </option>
+                            ))}
+                    </select>
+                </div>
             </form>
         </div>
     )
