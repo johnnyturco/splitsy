@@ -47,37 +47,50 @@ function BillDetails() {
     }
   }, [bill])
 
+  // function billCreator() {
+  //   if (billItems) {
+  //     const blah = billItems.map((billItem) => {
+  //       if (creatorId === billItem.user.id) {
+  //         return(billItem.user)
+  //       }
+  //     })
+  //     return blah
+  //   }
+  // }
+  // const blah2 = billCreator()
+  // const full_name = `${blah2[0].first_name} ${blah2[0].last_name}`
 
-  function handleEditBill(e){
-    e.preventDefault();
 
-    const editBill = {
-      title: title,
-      date: date,
-      bill_note: notes,
-      total_amount: totalAmount
-    }
+  // function handleEditBill(e){
+  //   e.preventDefault();
 
-    fetch(`/bills/${bill.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(editBill)
-    })
-      .then((r) => r.json())
-      .then((editedBill) => (
-        setBill(editedBill),
-        setTitle(editedBill.title),
-        setDate(editedBill.date),
-        setNotes(editedBill.bill_note),
-        setTotalAmount(editedBill.total_amount)
-      ))
+  //   const editBill = {
+  //     title: title,
+  //     date: date,
+  //     bill_note: notes,
+  //     total_amount: totalAmount
+  //   }
 
-      setIsOpen(false);
-      alert("Bill has been updated")
-  }
-  console.log(bill)
+  //   fetch(`/bills/${bill.id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(editBill)
+  //   })
+  //     .then((r) => r.json())
+  //     .then((editedBill) => (
+  //       setBill(editedBill),
+  //       setTitle(editedBill.title),
+  //       setDate(editedBill.date),
+  //       setNotes(editedBill.bill_note),
+  //       setTotalAmount(editedBill.total_amount)
+  //     ))
+
+  //     setIsOpen(false);
+  //     alert("Bill has been updated")
+  // }
+
   function handleGoBackOwed(){
       history.push("/items-owed")
   }
@@ -115,6 +128,7 @@ function BillDetails() {
           <div id="BillCard">
             <h2>{bill.title}</h2>
             <h4>{bill.date}</h4>
+            {/* <h4>Paid by: {full_name}</h4> */}
             <p><b>Notes:</b> {bill.bill_note}</p>
             <p><b>Total Amount:</b> <span className='amount'>{currencyFormatter.format(bill.total_amount)}</span></p>
           </div>
