@@ -77,7 +77,7 @@ function BillDetails() {
       setIsOpen(false);
       alert("Bill has been updated")
   }
-  console.log(bill)
+  // console.log(bill)
   function handleGoBackOwed(){
       history.push("/items-owed")
   }
@@ -101,6 +101,8 @@ function BillDetails() {
     taxAndTipAmount = bill.total_amount - preTaxTotal
   }
   // **********************
+
+  console.log(bill)
 
   return billItems ? (
     <>

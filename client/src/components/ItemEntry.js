@@ -51,7 +51,7 @@ function ItemEntry({ item, preTaxTotal, taxAndTipAmount, billItems, setBillItems
     alert("Item has been updated!");
   }
 
-  console.log(`${item.id}`)
+  // console.log(`${item.id}`)
 
   function updateEditedArray(updatedItem) {
     const updatedItemsArray = billItems.map((billItem) => {
