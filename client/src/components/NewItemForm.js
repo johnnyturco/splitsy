@@ -72,8 +72,9 @@ function NewItemForm({ setBillItems }) {
 
             <form onSubmit={handleSubmit}>
                 <div className="form-div">
-                    <label className="FormLabel">User:</label>
+                    <label className="EditFormLabel">User:</label>
                     <select
+                        className="NewFormInput"
                         id="user_id"
                         name="user_id"
                         value={usersId}
@@ -89,7 +90,7 @@ function NewItemForm({ setBillItems }) {
                 </div>
 
                 <div className="form-div">
-                    <label className="FormLabel">Item Note: </label>
+                    <label className="EditFormLabel">Item Note: </label>
                     <textarea
                         rows="2"
                         cols="20"
@@ -102,7 +103,7 @@ function NewItemForm({ setBillItems }) {
                 </div>
 
                 <div className="form-div">
-                    <label className="FormLabel">Item Amount: </label>
+                    <label className="EditFormLabel">Item Amount: </label>
                     <input
                         className="FormInput"
                         type="number"
@@ -114,23 +115,9 @@ function NewItemForm({ setBillItems }) {
                 </div>
 
                 <div className="form-div">
-                    <label className="FormLabel">Paid? </label>
-                    <input
-                        className="FormInput"
-                        type="checkbox"
-                        name="settled"
-                        checked={settled}
-                        onChange={(e) => setSettled(e.target.checked)}
-                    />
-                </div>
-
-                <button className="FormBtn">Add Item</button>
-                <br></br>
-
-                <div className="form-div">
-                    <label className="FormLabel">Venmo Username: @</label>
+                    <label className="EditFormLabel">Venmo Username:</label>
                     <select
-                        className="FormInput"
+                        className="NewFormInput"
                         id="venmo_username"
                         name="venmo_username"
                         value={usersId}
@@ -144,6 +131,19 @@ function NewItemForm({ setBillItems }) {
                             ))}
                     </select>
                 </div>
+
+                <div className="form-div">
+                    <label className="EditFormLabel">Paid? </label>
+                    <input
+                        className="FormInput"
+                        type="checkbox"
+                        name="settled"
+                        checked={settled}
+                        onChange={(e) => setSettled(e.target.checked)}
+                    />
+                </div>
+                <button className="FormBtn">Add Item</button>
+                <br></br>
             </form>
         </div>
     )

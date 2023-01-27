@@ -91,10 +91,11 @@ function BillDetails() {
   //     alert("Bill has been updated")
   // }
 
-      setIsOpen(false);
-      alert("Bill has been updated")
-  }
+  //     setIsOpen(false);
+  //     alert("Bill has been updated")
+  // }
   // console.log(bill)
+
   function handleGoBackOwed(){
       history.push("/items-owed")
   }

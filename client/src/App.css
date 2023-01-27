@@ -473,3 +473,13 @@ padding-left: 60px;
   border-radius: 5px;
 }
 
+.dropdownSelect {
+  padding: 15px
+}
+
+.NewFormInput{
+  font-size: 15px;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+}
