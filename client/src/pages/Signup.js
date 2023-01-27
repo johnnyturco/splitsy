@@ -30,7 +30,7 @@ function Signup() {
   function handleSignUp(e) {
     e.preventDefault();
     setErrors([]);
-    setIsLoading(true);
+    // setIsLoading(true);
 
     fetch("/signup", {
       method: "POST",
@@ -39,7 +39,7 @@ function Signup() {
       },
       body: JSON.stringify(credentials)
     }).then((r) => {
-      setIsLoading(false);
+      // setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => setUser(user));
         history.push("/home");
